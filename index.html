@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)file:///C:/Users/reginaldo.oliveira/Downloads/index.html.html -->
+<html lang="pt-BR" class="scroll-smooth"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#01696f">
+  <meta name="description" content="ShiftExchange Pro - Gestão integrada de escalas, trocas e folgas.">
+  <title>ShiftExchange Pro - Controle Integrado de Escalas</title>
+  
+  <!-- Fontes Premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./index.html_files/css2" rel="stylesheet">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="./index.html_files/saved_resource"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="./index.html_files/lucide@latest"></script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(156, 163, 175, 0.3);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(156, 163, 175, 0.5);
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .animate-slide-up {
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.fixed{position:fixed}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.bottom-0{bottom:0px}.bottom-24{bottom:6rem}.left-0{left:0px}.left-1\/2{left:50%}.right-0{right:0px}.right-6{right:1.5rem}.top-4{top:1rem}.top-6{top:1.5rem}.z-20{z-index:20}.z-30{z-index:30}.z-50{z-index:50}.col-span-2{grid-column:span 2 / span 2}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.-mr-2{margin-right:-0.5rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-square{aspect-ratio:1 / 1}.h-12{height:3rem}.h-14{height:3.5rem}.h-2{height:0.5rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-9{height:2.25rem}.max-h-\[92vh\]{max-height:92vh}.max-h-\[80\%\]{max-height:80%}.min-h-\[50px\]{min-height:50px}.min-h-screen{min-height:100vh}.min-h-\[44px\]{min-height:44px}.min-h-\[75px\]{min-height:75px}.w-11\/12{width:91.666667%}.w-12{width:3rem}.w-14{width:3.5rem}.w-2{width:0.5rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-full{width:100%}.w-8{width:2rem}.w-9{width:2.25rem}.min-w-0{min-width:0px}.max-w-4xl{max-width:56rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-7{grid-template-columns:repeat(7, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.self-end{align-self:flex-end}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.scroll-smooth{scroll-behavior:smooth}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.rounded-t-3xl{border-top-left-radius:1.5rem;border-top-right-radius:1.5rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-neutral-100{--tw-border-opacity:1;border-color:rgb(245 245 245 / var(--tw-border-opacity, 1))}.border-neutral-200{--tw-border-opacity:1;border-color:rgb(229 229 229 / var(--tw-border-opacity, 1))}.border-neutral-300{--tw-border-opacity:1;border-color:rgb(212 212 212 / var(--tw-border-opacity, 1))}.border-teal-100{--tw-border-opacity:1;border-color:rgb(204 251 241 / var(--tw-border-opacity, 1))}.border-teal-100\/70{border-color:rgb(204 251 241 / 0.7)}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.bg-amber-600{--tw-bg-opacity:1;background-color:rgb(217 119 6 / var(--tw-bg-opacity, 1))}.bg-black\/60{background-color:rgb(0 0 0 / 0.6)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-neutral-100{--tw-bg-opacity:1;background-color:rgb(245 245 245 / var(--tw-bg-opacity, 1))}.bg-neutral-200\/50{background-color:rgb(229 229 229 / 0.5)}.bg-neutral-50{--tw-bg-opacity:1;background-color:rgb(250 250 250 / var(--tw-bg-opacity, 1))}.bg-neutral-900{--tw-bg-opacity:1;background-color:rgb(23 23 23 / var(--tw-bg-opacity, 1))}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.bg-rose-600{--tw-bg-opacity:1;background-color:rgb(225 29 72 / var(--tw-bg-opacity, 1))}.bg-sky-600{--tw-bg-opacity:1;background-color:rgb(2 132 199 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-teal-50{--tw-bg-opacity:1;background-color:rgb(240 253 250 / var(--tw-bg-opacity, 1))}.bg-teal-50\/50{background-color:rgb(240 253 250 / 0.5)}.bg-teal-600{--tw-bg-opacity:1;background-color:rgb(13 148 136 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-rose-50{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-neutral-300{--tw-bg-opacity:1;background-color:rgb(212 212 212 / var(--tw-bg-opacity, 1))}.bg-opacity-90{--tw-bg-opacity:0.9}.bg-opacity-95{--tw-bg-opacity:0.95}.p-0{padding:0px}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-1\.5{padding:0.375rem}.p-0\.5{padding:0.125rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.pb-28{padding-bottom:7rem}.pb-4{padding-bottom:1rem}.pt-4{padding-top:1rem}.pr-0\.5{padding-right:0.125rem}.text-left{text-align:left}.text-center{text-align:center}.font-display{font-family:Space Grotesk, sans-serif}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-sans{font-family:Inter, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[8px\]{font-size:8px}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-neutral-400{--tw-text-opacity:1;color:rgb(163 163 163 / var(--tw-text-opacity, 1))}.text-neutral-500{--tw-text-opacity:1;color:rgb(115 115 115 / var(--tw-text-opacity, 1))}.text-neutral-600{--tw-text-opacity:1;color:rgb(82 82 82 / var(--tw-text-opacity, 1))}.text-neutral-800{--tw-text-opacity:1;color:rgb(38 38 38 / var(--tw-text-opacity, 1))}.text-neutral-900{--tw-text-opacity:1;color:rgb(23 23 23 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-teal-600{--tw-text-opacity:1;color:rgb(13 148 136 / var(--tw-text-opacity, 1))}.text-teal-700{--tw-text-opacity:1;color:rgb(15 118 110 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-purple-500{--tw-text-opacity:1;color:rgb(168 85 247 / var(--tw-text-opacity, 1))}.text-rose-800{--tw-text-opacity:1;color:rgb(159 18 57 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-teal-500{--tw-ring-opacity:1;--tw-ring-color:rgb(20 184 166 / var(--tw-ring-opacity, 1))}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-neutral-100:hover{--tw-bg-opacity:1;background-color:rgb(245 245 245 / var(--tw-bg-opacity, 1))}.hover\:bg-teal-100:hover{--tw-bg-opacity:1;background-color:rgb(204 251 241 / var(--tw-bg-opacity, 1))}.hover\:bg-teal-700:hover{--tw-bg-opacity:1;background-color:rgb(15 118 110 / var(--tw-bg-opacity, 1))}.hover\:bg-neutral-200:hover{--tw-bg-opacity:1;background-color:rgb(229 229 229 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-50:hover{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.hover\:text-neutral-600:hover{--tw-text-opacity:1;color:rgb(82 82 82 / var(--tw-text-opacity, 1))}.hover\:text-neutral-800:hover{--tw-text-opacity:1;color:rgb(38 38 38 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-rose-600:hover{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.focus\:not-sr-only:focus{position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;white-space:normal}.focus\:absolute:focus{position:absolute}.focus\:left-4:focus{left:1rem}.focus\:top-4:focus{top:1rem}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:opacity-100{opacity:1}.dark\:border-neutral-700:is(.dark *){--tw-border-opacity:1;border-color:rgb(64 64 64 / var(--tw-border-opacity, 1))}.dark\:border-neutral-800:is(.dark *){--tw-border-opacity:1;border-color:rgb(38 38 38 / var(--tw-border-opacity, 1))}.dark\:border-teal-900:is(.dark *){--tw-border-opacity:1;border-color:rgb(19 78 74 / var(--tw-border-opacity, 1))}.dark\:border-teal-900\/20:is(.dark *){border-color:rgb(19 78 74 / 0.2)}.dark\:border-blue-900\/50:is(.dark *){border-color:rgb(30 58 138 / 0.5)}.dark\:border-neutral-900:is(.dark *){--tw-border-opacity:1;border-color:rgb(23 23 23 / var(--tw-border-opacity, 1))}.dark\:bg-\[\#121110\]:is(.dark *){--tw-bg-opacity:1;background-color:rgb(18 17 16 / var(--tw-bg-opacity, 1))}.dark\:bg-\[\#151413\]:is(.dark *){--tw-bg-opacity:1;background-color:rgb(21 20 19 / var(--tw-bg-opacity, 1))}.dark\:bg-neutral-800:is(.dark *){--tw-bg-opacity:1;background-color:rgb(38 38 38 / var(--tw-bg-opacity, 1))}.dark\:bg-neutral-900:is(.dark *){--tw-bg-opacity:1;background-color:rgb(23 23 23 / var(--tw-bg-opacity, 1))}.dark\:bg-neutral-950:is(.dark *){--tw-bg-opacity:1;background-color:rgb(10 10 10 / var(--tw-bg-opacity, 1))}.dark\:bg-neutral-950\/70:is(.dark *){background-color:rgb(10 10 10 / 0.7)}.dark\:bg-teal-500:is(.dark *){--tw-bg-opacity:1;background-color:rgb(20 184 166 / var(--tw-bg-opacity, 1))}.dark\:bg-teal-950\/10:is(.dark *){background-color:rgb(4 47 46 / 0.1)}.dark\:bg-teal-950\/35:is(.dark *){background-color:rgb(4 47 46 / 0.35)}.dark\:bg-rose-950\/50:is(.dark *){background-color:rgb(76 5 25 / 0.5)}.dark\:bg-blue-950\/40:is(.dark *){background-color:rgb(23 37 84 / 0.4)}.dark\:bg-neutral-950\/20:is(.dark *){background-color:rgb(10 10 10 / 0.2)}.dark\:bg-opacity-90:is(.dark *){--tw-bg-opacity:0.9}.dark\:text-emerald-400:is(.dark *){--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.dark\:text-indigo-400:is(.dark *){--tw-text-opacity:1;color:rgb(129 140 248 / var(--tw-text-opacity, 1))}.dark\:text-neutral-100:is(.dark *){--tw-text-opacity:1;color:rgb(245 245 245 / var(--tw-text-opacity, 1))}.dark\:text-neutral-200:is(.dark *){--tw-text-opacity:1;color:rgb(229 229 229 / var(--tw-text-opacity, 1))}.dark\:text-neutral-400:is(.dark *){--tw-text-opacity:1;color:rgb(163 163 163 / var(--tw-text-opacity, 1))}.dark\:text-neutral-500:is(.dark *){--tw-text-opacity:1;color:rgb(115 115 115 / var(--tw-text-opacity, 1))}.dark\:text-purple-400:is(.dark *){--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.dark\:text-teal-400:is(.dark *){--tw-text-opacity:1;color:rgb(45 212 191 / var(--tw-text-opacity, 1))}.dark\:text-teal-400\/90:is(.dark *){color:rgb(45 212 191 / 0.9)}.dark\:text-white:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.dark\:text-rose-400:is(.dark *){--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.dark\:text-blue-300:is(.dark *){--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.dark\:hover\:bg-neutral-800:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(38 38 38 / var(--tw-bg-opacity, 1))}.dark\:hover\:bg-teal-900\/50:hover:is(.dark *){background-color:rgb(19 78 74 / 0.5)}.dark\:hover\:bg-neutral-800\/80:hover:is(.dark *){background-color:rgb(38 38 38 / 0.8)}.dark\:hover\:text-white:hover:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.dark\:hover\:text-rose-400:hover:is(.dark *){--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:bottom-28{bottom:7rem}.sm\:max-h-\[85vh\]{max-height:85vh}.sm\:w-auto{width:auto}.sm\:max-w-md{max-width:28rem}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:self-auto{align-self:auto}.sm\:rounded-3xl{border-radius:1.5rem}.sm\:p-4{padding:1rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}}@media (min-width: 768px){.md\:col-span-1{grid-column:span 1 / span 1}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:gap-2{gap:0.5rem}.md\:p-2{padding:0.5rem}.md\:py-8{padding-top:2rem;padding-bottom:2rem}.md\:pb-24{padding-bottom:6rem}.md\:text-\[10px\]{font-size:10px}.md\:text-\[9\.5px\]{font-size:9.5px}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}}</style></head>
+<body class="min-h-screen bg-slate-50 dark:bg-[#121110] text-neutral-850 dark:text-neutral-200 font-sans transition-colors duration-200 pb-28 md:pb-24">
+
+  <!-- Acessibilidade: Link de Pulo -->
+  <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-teal-650 text-white font-extrabold px-4 py-2.5 rounded-xl shadow-lg" href="file:///C:/Users/reginaldo.oliveira/Downloads/index.html.html#main-content">
+    Ir para o conteúdo principal
+  </a>
+
+  <!-- Alerta Flutuante / Toast de feedback -->
+  <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-3 px-5 py-3.5 rounded-2xl bg-neutral-900 dark:bg-neutral-800 text-white shadow-2xl max-w-sm w-11/12 border border-neutral-850 dark:border-neutral-700">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" aria-hidden="true" id="toast-icon" class="lucide lucide-check-circle w-5 h-5 text-emerald-400 shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+    <span id="toast-message" class="text-sm font-medium flex-1 text-left">Mensagem de aviso</span>
+    <button type="button" onclick="hideToast()" class="text-neutral-400 hover:text-white p-1 rounded-md" aria-label="Fechar alerta">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" aria-hidden="true" class="lucide lucide-x w-4 h-4"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+    </button>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-5 md:py-8">
+    
+    <!-- Header Topbar -->
+    <header id="topbar" class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 mb-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-sm sticky top-4 backdrop-blur-md bg-opacity-90 dark:bg-opacity-90 z-20">
+      <div class="flex items-center gap-3.5">
+        <div class="w-12 h-12 bg-teal-600 dark:bg-teal-500 rounded-2xl flex items-center justify-center text-white shadow-md shrink-0 select-none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+            <path d="M6 7h7a3 3 0 0 1 0 6H9"></path>
+            <path d="M18 17h-7a3 3 0 0 1 0-6h4"></path>
+            <path d="M8 5 5 8l3 3"></path>
+            <path d="m16 13 3 3-3 3"></path>
+          </svg>
+        </div>
+        
+        <div class="text-left">
+          <span class="text-[10px] uppercase font-mono font-extrabold tracking-widest text-teal-600 dark:text-teal-400">
+            Escala Integrada
+          </span>
+          <h1 class="text-xl font-extrabold text-neutral-900 dark:text-white tracking-tight leading-none mt-0.5">
+            ShiftExchange Pro
+          </h1>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+        <!-- Instalador simulável -->
+        <button type="button" onclick="triggerInstallation()" class="px-3.5 py-1.5 text-xs font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/35 border border-teal-100 dark:border-teal-900 rounded-xl hover:bg-teal-100 dark:hover:bg-teal-900/50 transition-all flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="download" aria-hidden="true" class="lucide lucide-download w-3.5 h-3.5"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+          <span>Instalar App</span>
+        </button>
+
+        <!-- Seletor de Tema -->
+        <button type="button" id="theme-toggle-btn" class="p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all text-neutral-655" title="Alternar tema visual" aria-label="Alternar tema"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="moon" aria-hidden="true" class="lucide lucide-moon w-4 h-4 text-teal-600"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg></button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      
+      <!-- Seletor Mensal de Navegação -->
+      <section class="flex items-center justify-between gap-4 p-4 mb-6 bg-white dark:bg-neutral-900 border border-neutral-205 dark:border-neutral-850 rounded-3xl shadow-sm select-none" aria-label="Navegador mensal">
+        <button type="button" onclick="navigateMonth(-1)" class="p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all text-neutral-600" aria-label="Mês anterior">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-left" aria-hidden="true" class="lucide lucide-chevron-left w-5 h-5"><path d="m15 18-6-6 6-6"></path></svg>
+        </button>
+        <div class="text-center">
+          <span class="text-[9px] uppercase font-bold tracking-widest text-neutral-400 dark:text-neutral-500 font-display block">
+            Escala Ativa
+          </span>
+          <h2 id="current-month-display" class="text-sm sm:text-base font-extrabold text-teal-700 dark:text-teal-400 uppercase tracking-wider font-display">JUNHO DE 2026</h2>
+        </div>
+        <button type="button" onclick="navigateMonth(1)" class="p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all text-neutral-600" aria-label="Próximo mês">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" aria-hidden="true" class="lucide lucide-chevron-right w-5 h-5"><path d="m9 18 6-6-6-6"></path></svg>
+        </button>
+      </section>
+
+      <!-- Painel Dinâmico de Estatísticas e Resumo -->
+      <section id="stats-dashboard" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <!-- Plantonistas -->
+        <div class="bg-white dark:bg-neutral-900 p-4 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-neutral-450 mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="book-open" aria-hidden="true" class="lucide lucide-book-open w-5 h-5 text-teal-600 dark:text-teal-400"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+            <span class="text-[10px] uppercase font-bold tracking-widest font-display">Plantões</span>
+          </div>
+          <div>
+            <h4 id="stat-total-shifts" class="text-3xl font-extrabold text-neutral-800 dark:text-neutral-100 tracking-tight">6</h4>
+            <p class="text-[11px] text-neutral-500 font-medium mt-1 truncate">Agendados no mês</p>
+          </div>
+        </div>
+
+        <!-- Trocas de Plantão -->
+        <div class="bg-white dark:bg-neutral-900 p-4 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-neutral-450 mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="repeat" aria-hidden="true" class="lucide lucide-repeat w-5 h-5 text-indigo-600 dark:text-indigo-400"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg>
+            <span class="text-[10px] uppercase font-bold tracking-widest font-display">Trocas</span>
+          </div>
+          <div>
+            <h4 id="stat-swapped" class="text-3xl font-extrabold text-neutral-800 dark:text-neutral-100 tracking-tight">6</h4>
+            <p class="text-[11px] text-neutral-500 font-medium mt-1 truncate">Compensações ativas</p>
+          </div>
+        </div>
+
+        <!-- Folgas Programadas -->
+        <div class="bg-white dark:bg-neutral-900 p-4 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-neutral-450 mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="smile" aria-hidden="true" class="lucide lucide-smile w-5 h-5 text-purple-600 dark:text-purple-400"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x2="9.01" y1="9" y2="9"></line><line x1="15" x2="15.01" y1="9" y2="9"></line></svg>
+            <span class="text-[10px] uppercase font-bold tracking-widest font-display">Folgas</span>
+          </div>
+          <div>
+            <h4 id="stat-leaves" class="text-3xl font-extrabold text-neutral-800 dark:text-neutral-100 tracking-tight">2</h4>
+            <p class="text-[11px] text-neutral-500 font-medium mt-1 truncate">Descansos previstos</p>
+          </div>
+        </div>
+
+        <!-- Líder ou Destaque de Plantões -->
+        <div class="bg-white dark:bg-neutral-900 p-4 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-sm flex flex-col justify-between col-span-2 md:col-span-1">
+          <div class="flex items-center justify-between text-neutral-450 mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="award" aria-hidden="true" class="lucide lucide-award w-5 h-5 text-amber-500"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+            <span class="text-[10px] uppercase font-bold tracking-widest font-display">Líder</span>
+          </div>
+          <div>
+            <h4 id="stat-leader-name" class="text-xl font-extrabold text-neutral-800 dark:text-neutral-100 tracking-tight truncate">Agenor</h4>
+            <p id="stat-leader-sub" class="text-[11px] text-neutral-500 font-medium mt-1">3 turnos lançados</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Abas e Layout Seletores de Turno -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6">
+        
+        <!-- Tabs Principais -->
+        <nav class="grid grid-cols-2 bg-neutral-250 dark:bg-neutral-950/70 p-1 rounded-2xl border border-neutral-300 dark:border-neutral-850 flex-1/2">
+          <button type="button" onclick="switchActiveTab(&#39;dashboard&#39;)" id="tab-dashboard" class="py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-400 shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-4 h-4 text-teal-600 shrink-0"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+            <span>Escala Trocas</span>
+          </button>
+          
+          <button type="button" onclick="switchActiveTab(&#39;leaves&#39;)" id="tab-leaves" class="py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 text-neutral-500 hover:text-neutral-800 dark:text-neutral-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="file-text" aria-hidden="true" class="lucide lucide-file-text w-4 h-4 shrink-0"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+            <span>Minhas Folgas</span>
+          </button>
+        </nav>
+
+        <!-- Botões de Estilo Visual (Grade vs Lista) -->
+        <div id="view-mode-panel" class="flex items-center gap-1.5 bg-neutral-200/50 dark:bg-neutral-950/70 p-1 rounded-xl self-end sm:self-auto">
+          <button type="button" onclick="switchViewMode(&#39;calendar&#39;)" id="btn-view-calendar" class="p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-400 shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="grid" aria-hidden="true" class="lucide lucide-grid w-4 h-4"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M3 15h18"></path><path d="M9 3v18"></path><path d="M15 3v18"></path></svg>
+            <span>Visual Grade</span>
+          </button>
+          <button type="button" onclick="switchViewMode(&#39;list&#39;)" id="btn-view-list" class="p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold text-neutral-500 hover:text-neutral-800 dark:text-neutral-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="list" aria-hidden="true" class="lucide lucide-list w-4 h-4"><path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path></svg>
+            <span>Lista Group</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Banner de Dica -->
+      <div class="bg-teal-50/50 dark:bg-teal-950/10 border border-teal-100/70 dark:border-teal-900/20 rounded-2xl p-3 mb-6 text-xs text-neutral-600 dark:text-teal-400/90 flex items-center gap-2.5 leading-relaxed">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="info" aria-hidden="true" class="lucide lucide-info w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+        <p>
+          <strong>Dica Rápida:</strong> Toque ou clique em qualquer quadrado do calendário mensal para lançar uma nova troca ou agendar folga diretamente na data desejada!
+        </p>
+      </div>
+
+      <!-- Container Dinâmico das Visualizações -->
+      <div id="dynamic-content-area" class="space-y-6">
+        <!-- 1. Conteúdo do Calendário do Mês (Calendário Principal) -->
+        <div id="calendar-view-section" class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-5 shadow-lg">
+          <div class="flex items-center gap-3 mb-4 text-neutral-800 dark:text-neutral-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-5 h-5 text-teal-600 dark:text-teal-400"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+            <span class="text-sm font-semibold uppercase tracking-wider font-display">Tabela Grade de Turnos e Folgas</span>
+          </div>
+
+          <div class="grid grid-cols-7 gap-1 md:gap-2 mb-2 text-center">
+            <div class="text-xs font-semibold py-2 text-neutral-500 uppercase tracking-widest">Dom</div>
+            <div class="text-xs font-semibold py-2 text-neutral-500 uppercase tracking-widest">Seg</div>
+            <div class="text-xs font-semibold py-2 text-neutral-500 uppercase tracking-widest">Ter</div>
+            <div class="text-xs font-semibold py-2 text-neutral-500 uppercase tracking-widest">Qua</div>
+            <div class="text-xs font-semibold py-2 text-neutral-500 uppercase tracking-widest">Qui</div>
+            <div class="text-xs font-semibold py-2 text-neutral-500 uppercase tracking-widest">Sex</div>
+            <div class="text-xs font-semibold py-2 text-neutral-500 uppercase tracking-widest">Sáb</div>
+          </div>
+
+          <div id="calendar-grid-cells" class="grid grid-cols-7 gap-1 md:gap-2"><div class="aspect-square bg-neutral-0/50 dark:bg-neutral-950/20 rounded-xl"></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">1</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">2</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">3</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"><div class="text-[9px] md:text-[10px] leading-tight px-1.5 py-0.5 rounded-md font-semibold truncate flex items-center justify-between gap-1 shadow-sm bg-emerald-600 text-white" title="Plantão de Agenor"><span class="truncate">Agenor</span><span class="shrink-0">⇄</span></div></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">4</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"><div class="text-[9px] md:text-[10px] leading-tight px-1.5 py-0.5 rounded-md font-semibold truncate flex items-center justify-between gap-1 shadow-sm bg-indigo-600 text-white" title="Plantão de Reginaldo"><span class="truncate">Reginaldo</span><span class="shrink-0">⇄</span></div></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">5</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">6</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">7</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"><div class="text-[9px] md:text-[10px] leading-tight px-1.5 py-0.5 rounded-md font-semibold truncate flex items-center justify-between gap-1 shadow-sm bg-emerald-600 text-white" title="Plantão de Agenor"><span class="truncate">Agenor</span><span class="shrink-0">⇄</span></div></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">8</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">9</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">10</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">11</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">12</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">13</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"><div class="text-[8px] md:text-[9.5px] leading-none px-1 py-0.5 rounded-md font-extrabold border uppercase tracking-wider text-center border-blue-200 bg-blue-50 text-blue-800 dark:bg-blue-950/40 dark:border-blue-900/50 dark:text-blue-300" title="Folga mensal de Agenor">Agenor: M</div></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">14</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"><div class="text-[9px] md:text-[10px] leading-tight px-1.5 py-0.5 rounded-md font-semibold truncate flex items-center justify-between gap-1 shadow-sm bg-indigo-600 text-white" title="Plantão de Reginaldo"><span class="truncate">Reginaldo</span><span class="shrink-0">⇄</span></div></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">15</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">16</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">17</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">18</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">19</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">20</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"><div class="text-[8px] md:text-[9.5px] leading-none px-1 py-0.5 rounded-md font-extrabold border uppercase tracking-wider text-center border-blue-200 bg-blue-50 text-blue-800 dark:bg-blue-950/40 dark:border-blue-900/50 dark:text-blue-300" title="Folga mensal de Reginaldo">Reginaldo: M</div></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">21</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"><div class="text-[9px] md:text-[10px] leading-tight px-1.5 py-0.5 rounded-md font-semibold truncate flex items-center justify-between gap-1 shadow-sm bg-emerald-600 text-white" title="Plantão de Agenor"><span class="truncate">Agenor</span><span class="shrink-0">⇄</span></div></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">22</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">23</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">24</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">25</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">26</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">27</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">28</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"><div class="text-[9px] md:text-[10px] leading-tight px-1.5 py-0.5 rounded-md font-semibold truncate flex items-center justify-between gap-1 shadow-sm bg-indigo-600 text-white" title="Plantão de Reginaldo"><span class="truncate">Reginaldo</span><span class="shrink-0">⇄</span></div></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">29</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div><div class="aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]"><div class="flex justify-between items-start w-full"><span class="font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400">30</span><span class="opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></div><div class="flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full"></div></div></div>
+        </div>
+
+        <!-- 2. Conteúdo em Formato de Lista de Escalas -->
+        <div id="list-view-section" class="hidden flex flex-col gap-6">
+          <!-- Gerado dinamicamente via Javascript -->
+        </div>
+
+        <!-- 3. Conteúdo da Aba Geral de Folgas -->
+        <div id="leaves-view-section" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Gerado dinamicamente via Javascript -->
+        </div>
+
+        <!-- Gerenciador de Colaboradores e Equipe do Plantão -->
+        <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-5 shadow-lg">
+          <div class="flex items-center justify-between gap-4 mb-4">
+            <div class="flex items-center gap-3 text-neutral-800 dark:text-neutral-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" aria-hidden="true" class="lucide lucide-users w-5 h-5 text-teal-600 dark:text-teal-400"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+              <h3 class="font-semibold text-base font-display">Equipe do Plantão (<span id="team-count">4</span>)</h3>
+            </div>
+            
+            <button type="button" onclick="toggleCollaboratorForm()" class="text-xs bg-neutral-100 dark:bg-neutral-850 hover:bg-neutral-250 text-teal-700 dark:text-teal-400 font-extrabold px-3 py-1.5 rounded-xl border border-neutral-200 dark:border-neutral-800 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="user-plus" aria-hidden="true" class="lucide lucide-user-plus w-3.5 h-3.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" x2="19" y1="8" y2="14"></line><line x1="22" x2="16" y1="11" y2="11"></line></svg>
+              <span id="btn-colab-toggle-text">Novo integrante</span>
+            </button>
+          </div>
+
+          <!-- Formulário Criar Novo Integrante -->
+          <div id="add-collaborator-form" class="hidden mb-4 p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 animate-fade-in">
+            <h4 class="text-sm font-bold text-neutral-800 dark:text-neutral-200 mb-3 block">Cadastrar Colaborador</h4>
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-1.5">
+                <label for="new-colab-name" class="text-xs font-bold text-neutral-500 uppercase tracking-widest">Nome ou Apelido</label>
+                <input id="new-colab-name" type="text" placeholder="Ex: Lucas, Mariana" class="w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-850 rounded-xl px-3 py-2 text-sm text-neutral-800 dark:text-neutral-200 focus:outline-none">
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <span class="text-xs font-bold text-neutral-500 uppercase tracking-widest">Cor Temática</span>
+                <div class="flex gap-2 flex-wrap">
+                  <button type="button" onclick="selectColabColor(&#39;bg-indigo-650&#39;, this)" class="w-7 h-7 rounded-full bg-indigo-600 border-2 border-white ring-2 ring-teal-500 transition-colors" data-color="bg-indigo-600 text-white"></button>
+                  <button type="button" onclick="selectColabColor(&#39;bg-emerald-600&#39;, this)" class="w-7 h-7 rounded-full bg-emerald-600 border-2 border-white transition-colors" data-color="bg-emerald-600 text-white"></button>
+                  <button type="button" onclick="selectColabColor(&#39;bg-amber-600&#39;, this)" class="w-7 h-7 rounded-full bg-amber-600 border-2 border-white transition-colors" data-color="bg-amber-600 text-white"></button>
+                  <button type="button" onclick="selectColabColor(&#39;bg-rose-600&#39;, this)" class="w-7 h-7 rounded-full bg-rose-600 border-2 border-white transition-colors" data-color="bg-rose-600 text-white"></button>
+                  <button type="button" onclick="selectColabColor(&#39;bg-sky-600&#39;, this)" class="w-7 h-7 rounded-full bg-sky-600 border-2 border-white transition-colors" data-color="bg-sky-600 text-white"></button>
+                  <button type="button" onclick="selectColabColor(&#39;bg-purple-650&#39;, this)" class="w-7 h-7 rounded-full bg-purple-600 border-2 border-white transition-colors" data-color="bg-purple-600 text-white"></button>
+                  <button type="button" onclick="selectColabColor(&#39;bg-teal-650&#39;, this)" class="w-7 h-7 rounded-full bg-teal-600 border-2 border-white transition-colors" data-color="bg-teal-600 text-white"></button>
+                </div>
+              </div>
+              <button type="button" onclick="submitCollaborator()" class="mt-2 w-full bg-teal-600 hover:bg-teal-700 text-white font-bold p-2.5 rounded-xl text-sm shadow-md flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" aria-hidden="true" class="lucide lucide-plus w-4 h-4"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+                Adicionar Colaborador
+              </button>
+            </div>
+          </div>
+
+          <!-- Grade de Colaboradores cadastrados -->
+          <div id="collaborators-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3"><div class="flex items-center justify-between gap-3 p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850"><div class="flex items-center gap-2.5 min-w-0"><div class="w-9 h-9 rounded-xl flex items-center justify-center font-extrabold shadow-sm text-sm uppercase shrink-0 bg-indigo-600 text-white">R</div><div class="min-w-0"><h4 class="font-bold text-xs md:text-sm text-neutral-850 dark:text-neutral-200 truncate">Reginaldo</h4><p class="text-[10px] text-neutral-500 font-medium">3 plantões • 1 folga</p></div></div></div><div class="flex items-center justify-between gap-3 p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850"><div class="flex items-center gap-2.5 min-w-0"><div class="w-9 h-9 rounded-xl flex items-center justify-center font-extrabold shadow-sm text-sm uppercase shrink-0 bg-emerald-600 text-white">A</div><div class="min-w-0"><h4 class="font-bold text-xs md:text-sm text-neutral-850 dark:text-neutral-200 truncate">Agenor</h4><p class="text-[10px] text-neutral-500 font-medium">3 plantões • 1 folga</p></div></div></div><div class="flex items-center justify-between gap-3 p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850"><div class="flex items-center gap-2.5 min-w-0"><div class="w-9 h-9 rounded-xl flex items-center justify-center font-extrabold shadow-sm text-sm uppercase shrink-0 bg-purple-600 text-white">J</div><div class="min-w-0"><h4 class="font-bold text-xs md:text-sm text-neutral-850 dark:text-neutral-200 truncate">Juliana</h4><p class="text-[10px] text-neutral-500 font-medium">0 plantões • 0 folgas</p></div></div><button class="text-neutral-400 hover:text-rose-600 dark:hover:text-rose-400 p-2 rounded-xl hover:bg-rose-50 transition-all"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path></svg></button></div><div class="flex items-center justify-between gap-3 p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850"><div class="flex items-center gap-2.5 min-w-0"><div class="w-9 h-9 rounded-xl flex items-center justify-center font-extrabold shadow-sm text-sm uppercase shrink-0 bg-amber-600 text-white">M</div><div class="min-w-0"><h4 class="font-bold text-xs md:text-sm text-neutral-850 dark:text-neutral-200 truncate">Marcos</h4><p class="text-[10px] text-neutral-500 font-medium">0 plantões • 0 folgas</p></div></div><button class="text-neutral-400 hover:text-rose-600 dark:hover:text-rose-400 p-2 rounded-xl hover:bg-rose-50 transition-all"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path></svg></button></div></div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Botão Flutuante (Add Record) -->
+  <button type="button" onclick="openModal()" class="fixed right-6 bottom-24 sm:bottom-28 w-14 h-14 bg-teal-600 hover:bg-teal-700 text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-2xl z-30 transition-transform hover:scale-105 active:scale-95 cursor-pointer" aria-label="Adicionar novo registro">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" aria-hidden="true" class="lucide lucide-plus w-7 h-7"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+  </button>
+
+  <!-- Rodapé Persistente de Controle Técnico -->
+  <footer id="bottom-status-bar" class="fixed bottom-0 left-0 right-0 p-4 border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#151413] bg-opacity-95 dark:bg-opacity-90 backdrop-blur-md z-30">
+    <div class="max-w-4xl mx-auto flex flex-col xs:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <!-- Avatares dinâmicos na Barra Status -->
+        <div id="footer-avatars" class="flex items-center select-none" aria-hidden="true"><div class="w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-xs uppercase border-2 border-white dark:border-neutral-900 bg-indigo-600 text-white shrink-0 -mr-2 shadow-sm" title="Reginaldo">R</div><div class="w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-xs uppercase border-2 border-white dark:border-neutral-900 bg-emerald-600 text-white shrink-0 -mr-2 shadow-sm" title="Agenor">A</div><div class="w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-xs uppercase border-2 border-white dark:border-neutral-900 bg-purple-600 text-white shrink-0 -mr-2 shadow-sm" title="Juliana">J</div><div class="w-8 h-8 rounded-full bg-neutral-300 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 font-bold text-xs flex items-center justify-center border-2 border-white dark:border-neutral-900 select-none">+1</div></div>
+
+        <div class="text-left xs:ml-2">
+          <span class="text-[10px] uppercase font-bold tracking-widest text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            PWA Local Ativo
+          </span>
+          <p class="text-xs text-neutral-500 font-semibold leading-none mt-0.5">
+            Modo Instalável &amp; Offline habilitado
+          </p>
+        </div>
+      </div>
+
+      <button type="button" onclick="compartilharEscala()" class="w-full xs:w-auto px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="share-2" aria-hidden="true" class="lucide lucide-share-2 w-4 h-4"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg>
+        <span>Compartilhar Escala</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Modal Backdrop / Diálogo de entrada (Add & Edit) -->
+  <div id="modal-container" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in" onclick="closeModal()">
+    <div class="w-full sm:max-w-md bg-white dark:bg-neutral-900 rounded-t-3xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 shadow-2xl p-6 overflow-hidden max-h-[92vh] sm:max-h-[85vh] flex flex-col animate-slide-up" onclick="event.stopPropagation()">
+      
+      <!-- Cabeçalho Janela -->
+      <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
+        <div>
+          <span class="text-[10px] uppercase font-bold tracking-widest text-neutral-400 dark:text-neutral-500 font-display">
+            Formulário Dinâmico
+          </span>
+          <h3 id="modal-title-text" class="text-xl font-extrabold text-neutral-800 dark:text-neutral-100 tracking-tight mt-0.5">
+            Lançar Novo Registro
+          </h3>
+        </div>
+        <button type="button" onclick="closeModal()" class="p-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-white rounded-full bg-neutral-50 dark:bg-neutral-850 transition-all" aria-label="Fechar janela">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" aria-hidden="true" class="lucide lucide-x w-5 h-5"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Formulário de Preenchimento -->
+      <form id="entry-form" onsubmit="saveEntry(event)" class="flex-1 overflow-y-auto py-5 space-y-5">
+        
+        <!-- ID interno para edições -->
+        <input type="hidden" id="entry-id" value="">
+
+        <!-- Data do Turno -->
+        <div class="flex flex-col gap-1.5">
+          <label for="form-date" class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" aria-hidden="true" class="lucide lucide-calendar w-4 h-4 text-teal-600"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+            Data do Evento
+          </label>
+          <input id="form-date" type="date" required="" class="w-full min-h-[50px] px-4 rounded-xl border border-neutral-200 dark:border-neutral-850 bg-neutral-50 dark:bg-neutral-950 text-neutral-850 dark:text-neutral-150 focus:outline-none">
+        </div>
+
+        <!-- Seleção de Colaborador -->
+        <div class="flex flex-col gap-1.5">
+          <label for="form-person" class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="user" aria-hidden="true" class="lucide lucide-user w-4 h-4 text-teal-600"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            Colaborador Escalado
+          </label>
+          <select id="form-person" required="" class="w-full min-h-[50px] px-4 rounded-xl border border-neutral-200 dark:border-neutral-850 bg-neutral-50 dark:bg-neutral-950 text-neutral-850 dark:text-neutral-150 focus:outline-none"><option value="Reginaldo">Reginaldo</option><option value="Agenor">Agenor</option><option value="Juliana">Juliana</option><option value="Marcos">Marcos</option></select>
+        </div>
+
+        <!-- Seções exclusivas da aba ESCALA TROCAS -->
+        <div id="fields-dashboard" class="space-y-5">
+          <!-- Troca compensatória -->
+          <div class="flex flex-col gap-1.5">
+            <label for="form-swap-date" class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="repeat" aria-hidden="true" class="lucide lucide-repeat w-4 h-4 text-blue-500"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg>
+              Troca compensatória pelo dia (Opcional)
+            </label>
+            <input id="form-swap-date" type="date" class="w-full min-h-[50px] px-4 rounded-xl border border-neutral-200 dark:border-neutral-850 bg-neutral-50 dark:bg-neutral-950 text-neutral-850 dark:text-neutral-150 focus:outline-none">
+          </div>
+
+          <!-- Status em casa ou ocupado -->
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              Fica Em Casa ou Ocupado no Plantão?
+            </label>
+            <div class="grid grid-cols-2 gap-2 bg-neutral-100 dark:bg-neutral-950 p-1.5 rounded-2xl border border-neutral-200 dark:border-neutral-850">
+              <button type="button" id="btn-status-ocupado" onclick="setFormAtHomeStatus(&#39;-x-&#39;)" class="min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center gap-1 bg-rose-50 text-rose-800 dark:bg-rose-950/50 dark:text-rose-400 shadow-sm">
+                Ocupado (-x-)
+              </button>
+              <button type="button" id="btn-status-casa" onclick="setFormAtHomeStatus(&#39;casa&#39;)" class="min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center gap-1 text-neutral-500">
+                Em casa (Nome)
+              </button>
+            </div>
+            <input id="form-at-home-value" type="hidden" value="-x-">
+          </div>
+        </div>
+
+        <!-- Seções exclusivas de MINHAS FOLGAS -->
+        <div id="fields-leaves" class="hidden flex flex-col gap-1.5">
+          <span class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="award" aria-hidden="true" class="lucide lucide-award w-4 h-4 text-purple-500"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+            Tipo Especial de Folga
+          </span>
+          <div class="grid grid-cols-2 gap-2 bg-neutral-100 dark:bg-neutral-950 p-1.5 rounded-2xl border border-neutral-200 dark:border-neutral-850">
+            <button type="button" id="btn-leave-mensal" onclick="setFormLeaveType(&#39;mensal&#39;)" class="min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-white dark:bg-neutral-900 text-teal-700 shadow-sm">
+              Mensal
+            </button>
+            <button type="button" id="btn-leave-extra" onclick="setFormLeaveType(&#39;extra&#39;)" class="min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500">
+              Extra
+            </button>
+          </div>
+          <input id="form-leave-value" type="hidden" value="mensal">
+        </div>
+
+        <!-- Botões Rodapé Cancelar/Salvar -->
+        <div class="flex gap-3 pt-4 border-t border-neutral-100 dark:border-neutral-800">
+          <button type="button" onclick="closeModal()" class="flex-1 min-h-[50px] rounded-xl border border-neutral-200 dark:border-neutral-750 text-neutral-600 dark:text-neutral-350 font-bold hover:bg-neutral-55 transition-all text-sm">
+            Cancelar
+          </button>
+          <button type="submit" class="flex-1 min-h-[50px] rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-extrabold transition-all text-sm shadow-md flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" aria-hidden="true" class="lucide lucide-check w-4 h-4"><path d="M20 6 9 17l-5-5"></path></svg>
+            Salvar Registro
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // 1. DADOS INICIAIS DE BACKUP DE MEMÓRIA (Se não houver localStorage)
+    const INITIAL_COLLABORATORS = [
+      { id: 'col1', name: 'Reginaldo', color: 'bg-indigo-600 text-white', avatarChar: 'R' },
+      { id: 'col2', name: 'Agenor', color: 'bg-emerald-600 text-white', avatarChar: 'A' },
+      { id: 'col3', name: 'Juliana', color: 'bg-purple-600 text-white', avatarChar: 'J' },
+      { id: 'col4', name: 'Marcos', color: 'bg-amber-600 text-white', avatarChar: 'M' }
+    ];
+
+    const INITIAL_SHIFTS = [
+      { id: 'shift_1', date: '2026-06-03', onShift: 'Agenor', swapForDate: '2026-06-04', atHome: '-x-' },
+      { id: 'shift_2', date: '2026-06-07', onShift: 'Agenor', swapForDate: '2026-06-14', atHome: 'Agenor' },
+      { id: 'shift_3', date: '2026-06-21', onShift: 'Agenor', swapForDate: '2026-06-28', atHome: 'Agenor' },
+      { id: 'shift_4', date: '2026-06-04', onShift: 'Reginaldo', swapForDate: '2026-06-03', atHome: '-x-' },
+      { id: 'shift_5', date: '2026-06-14', onShift: 'Reginaldo', swapForDate: '2026-06-07', atHome: 'Reginaldo' },
+      { id: 'shift_6', date: '2026-06-28', onShift: 'Reginaldo', swapForDate: '2026-06-21', atHome: 'Reginaldo' }
+    ];
+
+    const INITIAL_OFFDAYS = [
+      { id: 'off_1', date: '2026-06-13', name: 'Agenor', type: 'mensal' },
+      { id: 'off_2', date: '2026-06-20', name: 'Reginaldo', type: 'mensal' }
+    ];
+
+    // 2. ESTADO GERAL DA APLICAÇÃO (STATE SINK)
+    const state = {
+      activeTab: 'dashboard', // dashboard | leaves
+      viewMode: 'calendar',   // calendar | list
+      currentMonth: new Date(2026, 5, 1), // June 2026
+      
+      collaborators: (() => {
+        try {
+          return JSON.parse(localStorage.getItem('collaborators_v4')) || INITIAL_COLLABORATORS;
+        } catch {
+          return INITIAL_COLLABORATORS;
+        }
+      })(),
+      
+      shifts: (() => {
+        try {
+          return JSON.parse(localStorage.getItem('shifts_v4')) || INITIAL_SHIFTS;
+        } catch {
+          return INITIAL_SHIFTS;
+        }
+      })(),
+      
+      offDays: (() => {
+        try {
+          return JSON.parse(localStorage.getItem('offDays_v4')) || INITIAL_OFFDAYS;
+        } catch {
+          return INITIAL_OFFDAYS;
+        }
+      })(),
+
+      selectedColor: 'bg-indigo-600 text-white',
+      theme: (() => {
+        try {
+          return localStorage.getItem('theme_v4') || 'light';
+        } catch {
+          return 'light';
+        }
+      })()
+    };
+
+    // 3. SELEÇÃO DE ELEMENTOS INTERNOS DO DOM
+    const el = {
+      currentMonthDisplay: document.getElementById('current-month-display'),
+      calendarGridCells: document.getElementById('calendar-grid-cells'),
+      listViewSection: document.getElementById('list-view-section'),
+      leavesViewSection: document.getElementById('leaves-view-section'),
+      collaboratorsGrid: document.getElementById('collaborators-grid'),
+      footerAvatars: document.getElementById('footer-avatars'),
+      
+      tabDashboard: document.getElementById('tab-dashboard'),
+      tabLeaves: document.getElementById('tab-leaves'),
+      viewModePanel: document.getElementById('view-mode-panel'),
+      btnViewCalendar: document.getElementById('btn-view-calendar'),
+      btnViewList: document.getElementById('btn-view-list'),
+      
+      calendarViewSection: document.getElementById('calendar-view-section'),
+      
+      // Estatísticas
+      statTotalShifts: document.getElementById('stat-total-shifts'),
+      statSwapped: document.getElementById('stat-swapped'),
+      statLeaves: document.getElementById('stat-leaves'),
+      statLeaderName: document.getElementById('stat-leader-name'),
+      statLeaderSub: document.getElementById('stat-leader-sub'),
+      
+      // Integrantes Equipe
+      teamCount: document.getElementById('team-count'),
+      addCollaboratorForm: document.getElementById('add-collaborator-form'),
+      newColabName: document.getElementById('new-colab-name'),
+      btnColabToggleText: document.getElementById('btn-colab-toggle-text'),
+      
+      // Janela Modal
+      modalContainer: document.getElementById('modal-container'),
+      modalTitleText: document.getElementById('modal-title-text'),
+      entryForm: document.getElementById('entry-form'),
+      entryId: document.getElementById('entry-id'),
+      formDate: document.getElementById('form-date'),
+      formPerson: document.getElementById('form-person'),
+      
+      fieldsDashboard: document.getElementById('fields-dashboard'),
+      formSwapDate: document.getElementById('form-swap-date'),
+      btnStatusOcupado: document.getElementById('btn-status-ocupado'),
+      btnStatusCasa: document.getElementById('btn-status-casa'),
+      formAtHomeValue: document.getElementById('form-at-home-value'),
+      
+      fieldsLeaves: document.getElementById('fields-leaves'),
+      btnLeaveMensal: document.getElementById('btn-leave-mensal'),
+      btnLeaveExtra: document.getElementById('btn-leave-extra'),
+      formLeaveValue: document.getElementById('form-leave-value'),
+      
+      // Alertas
+      toast: document.getElementById('toast'),
+      toastMessage: document.getElementById('toast-message'),
+      toastIcon: document.getElementById('toast-icon'),
+      
+      // Tema botão
+      themeToggleBtn: document.getElementById('theme-toggle-btn')
+    };
+
+    // 4. SISTEMA DE SALVAMENTO AUTOMÁTICO (PERSISTENCE LAYER)
+    function saveAllToLocalStorage() {
+      try {
+        localStorage.setItem('collaborators_v4', JSON.stringify(state.collaborators));
+        localStorage.setItem('shifts_v4', JSON.stringify(state.shifts));
+        localStorage.setItem('offDays_v4', JSON.stringify(state.offDays));
+      } catch (e) {
+        console.error('Falha ao salvar no armazenamento local do navegador.', e);
+      }
+    }
+
+    // 5. ENVIAR FEEDBACK DE PLANILHA (TOAST POPUP MANAGER)
+    let toastTimeout;
+    function showToast(message, type = 'success') {
+      el.toastMessage.textContent = message;
+      el.toast.classList.remove('hidden');
+      el.toast.classList.add('flex', 'animate-fade-in');
+      
+      // Ajuste visual do ícone
+      if (type === 'success') {
+        el.toastIcon.innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>';
+        el.toastIcon.className = "w-5 h-5 text-emerald-400 shrink-0";
+      } else if (type === 'error') {
+        el.toastIcon.innerHTML = '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>';
+        el.toastIcon.className = "w-5 h-5 text-rose-400 shrink-0";
+      } else {
+        el.toastIcon.innerHTML = '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line>';
+        el.toastIcon.className = "w-5 h-5 text-blue-400 shrink-0";
+      }
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(hideToast, 3500);
+    }
+
+    function hideToast() {
+      el.toast.classList.add('hidden');
+      el.toast.classList.remove('flex', 'animate-fade-in');
+    }
+
+    // 6. NAVEGAÇÃO DE DATAS COMPENSATÓRIAS (MANIPULATION)
+    function navigateMonth(direction) {
+      state.currentMonth = new Date(state.currentMonth.getFullYear(), state.currentMonth.getMonth() + direction, 1);
+      renderAll();
+    }
+
+    function formatMonthYear(date) {
+      return date.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }).toUpperCase();
+    }
+
+    // Retorna string formatada legível "03/06/2026 - quarta-feira"
+    function formatReadableDate(dateString) {
+      if (!dateString) return '-';
+      const [year, month, day] = dateString.split('-').map(Number);
+      const tempDate = new Date(year, month - 1, day);
+      const weekday = tempDate.toLocaleDateString('pt-BR', { weekday: 'long' });
+      const paddedDay = String(day).padStart(2, '0');
+      const paddedMonth = String(month).padStart(2, '0');
+      return `${paddedDay}/${paddedMonth}/${year} - ${weekday}`;
+    }
+
+    // Encontra informações de cor do integrante
+    function getCollaboratorColorClass(name) {
+      const match = state.collaborators.find(c => c.name.toLowerCase() === name.toLowerCase());
+      return match ? match.color : 'bg-slate-500 text-white';
+    }
+
+    // 7. CHAVEAMENTO DE ABAS E MODOS DE VISUALIZAÇÃO
+    function switchActiveTab(tabName) {
+      state.activeTab = tabName;
+      
+      // Ajuste CSS botões atalho abas
+      if (tabName === 'dashboard') {
+        el.tabDashboard.className = "py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-400 shadow-sm";
+        el.tabLeaves.className = "py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 text-neutral-500 hover:text-neutral-800 dark:text-neutral-400";
+        el.viewModePanel.classList.remove('hidden');
+      } else {
+        el.tabLeaves.className = "py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 bg-white dark:bg-neutral-900 text-purple-700 dark:text-purple-400 shadow-sm";
+        el.tabDashboard.className = "py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 text-neutral-500 hover:text-neutral-800 dark:text-neutral-400";
+        el.viewModePanel.classList.add('hidden');
+      }
+
+      renderAll();
+    }
+
+    function switchViewMode(modeName) {
+      state.viewMode = modeName;
+      
+      if (modeName === 'calendar') {
+        el.btnViewCalendar.className = "p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-400 shadow-sm";
+        el.btnViewList.className = "p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold text-neutral-500 hover:text-neutral-800 dark:text-neutral-400";
+      } else {
+        el.btnViewList.className = "p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-400 shadow-sm";
+        el.btnViewCalendar.className = "p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold text-neutral-500 hover:text-neutral-800 dark:text-neutral-400";
+      }
+
+      renderAll();
+    }
+
+    // 8. CRIAÇÃO DINÂMICA DA GRADE INVISÍVEL DO CALENDÁRIO
+    function renderCalendar() {
+      el.calendarGridCells.innerHTML = '';
+      
+      const year = state.currentMonth.getFullYear();
+      const month = state.currentMonth.getMonth(); // 0-11
+      
+      const firstDay = new Date(year, month, 1);
+      const startOffset = firstDay.getDay(); // dia da semana do primeiro dia (0-6)
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Células vazias que precedem o início do mês
+      for (let i = 0; i < startOffset; i++) {
+        const blank = document.createElement('div');
+        blank.className = "aspect-square bg-neutral-0/50 dark:bg-neutral-950/20 rounded-xl";
+        el.calendarGridCells.appendChild(blank);
+      }
+
+      // Células do mês de fato
+      for (let day = 1; day <= daysInMonth; day++) {
+        const mm = String(month + 1).padStart(2, '0');
+        const dd = String(day).padStart(2, '0');
+        const dateStr = `${year}-${mm}-${dd}`;
+
+        const cell = document.createElement('div');
+        cell.className = "aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-150 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]";
+        cell.onclick = () => openModalWithParams(dateStr);
+
+        // Indicador numérico
+        const topBar = document.createElement('div');
+        topBar.className = "flex justify-between items-start w-full";
+        
+        const numSpan = document.createElement('span');
+        numSpan.className = "font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400";
+        numSpan.textContent = day;
+        topBar.appendChild(numSpan);
+        
+        const plusIcon = document.createElement('span');
+        plusIcon.className = "opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 transition-opacity";
+        plusIcon.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>`;
+        topBar.appendChild(plusIcon);
+        
+        cell.appendChild(topBar);
+
+        // Container de badges internas
+        const badgesContainer = document.createElement('div');
+        badgesContainer.className = "flex flex-col gap-1 overflow-y-auto max-h-[80%] pr-0.5 w-full";
+
+        // a) Lançamento de turnos
+        const dayShifts = state.shifts.filter(s => s.date === dateStr);
+        dayShifts.forEach(s => {
+          const badge = document.createElement('div');
+          badge.className = `text-[9px] md:text-[10px] leading-tight px-1.5 py-0.5 rounded-md font-semibold truncate flex items-center justify-between gap-1 shadow-sm ${getCollaboratorColorClass(s.onShift)}`;
+          badge.title = `Plantão de ${s.onShift}`;
+          badge.onclick = (e) => {
+            e.stopPropagation();
+            editShiftItem(s.id);
+          };
+
+          const label = document.createElement('span');
+          label.className = "truncate";
+          label.textContent = s.onShift;
+          badge.appendChild(label);
+
+          const icn = document.createElement('span');
+          icn.className = "shrink-0";
+          if (s.swapForDate) {
+            icn.innerHTML = '⇄';
+          } else if (s.atHome !== '-x-') {
+            icn.innerHTML = '🏠';
+          }
+          badge.appendChild(icn);
+
+          badgesContainer.appendChild(badge);
+        });
+
+        // b) Folgas programadas
+        const dayOffs = state.offDays.filter(o => o.date === dateStr);
+        dayOffs.forEach(o => {
+          const badge = document.createElement('div');
+          badge.className = `text-[8px] md:text-[9.5px] leading-none px-1 py-0.5 rounded-md font-extrabold border uppercase tracking-wider text-center ${
+            o.type === 'mensal'
+              ? 'border-blue-200 bg-blue-50 text-blue-800 dark:bg-blue-950/40 dark:border-blue-900/50 dark:text-blue-300'
+              : 'border-purple-200 bg-purple-50 text-purple-800 dark:bg-purple-950/40 dark:border-purple-900/50 dark:text-purple-300'
+          }`;
+          badge.title = `Folga ${o.type} de ${o.name}`;
+          badge.textContent = `${o.name}: ${o.type[0].toUpperCase()}`;
+          badge.onclick = (e) => {
+            e.stopPropagation();
+            editOffDayItem(o.id);
+          };
+
+          badgesContainer.appendChild(badge);
+        });
+
+        cell.appendChild(badgesContainer);
+        el.calendarGridCells.appendChild(cell);
+      }
+    }
+
+    // 9. CONTEÚDO DA LISTAGEM DE TROCAS DETALHADA
+    function renderListView() {
+      el.listViewSection.innerHTML = '';
+      
+      const year = state.currentMonth.getFullYear();
+      const month = state.currentMonth.getMonth();
+
+      // Filtra turnos do mês atual
+      const monthShifts = state.shifts.filter(s => {
+        const d = new Date(s.date + 'T00:00:00');
+        return d.getMonth() === month && d.getFullYear() === year;
+      });
+
+      if (!monthShifts.length) {
+        el.listViewSection.innerHTML = `
+          <div class="border border-dashed border-neutral-200 dark:border-neutral-800 rounded-3xl p-10 text-center bg-white dark:bg-neutral-900 shadow-sm">
+            <i data-lucide="calendar-days" class="w-12 h-12 text-neutral-305 dark:text-neutral-600 mx-auto mb-4"></i>
+            <h4 class="font-extrabold text-neutral-800 dark:text-neutral-200 text-lg">Nenhum plantão lançado</h4>
+            <p class="text-neutral-500 text-sm mt-1 max-w-sm mx-auto">
+              Sua equipe não possui permutas configuradas para este mês. Agende tocando no botão (+) ou nas células do calendário.
+            </p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      // Group por pessoa
+      const grouped = {};
+      monthShifts.forEach(s => {
+        if (!grouped[s.onShift]) grouped[s.onShift] = [];
+        grouped[s.onShift].push(s);
+      });
+
+      Object.entries(grouped).forEach(([person, list]) => {
+        const sorted = list.sort((a,b) => a.date.localeCompare(b.date));
+        
+        const cardObj = document.createElement('article');
+        cardObj.className = "bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl overflow-hidden shadow-sm animate-fade-in";
+
+        let htmlString = `
+          <header class="px-5 py-4 bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-100 dark:border-neutral-850 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl flex items-center justify-center font-extrabold shadow-sm text-xs ${getCollaboratorColorClass(person)}">
+                ${person[0].toUpperCase()}
+              </div>
+              <div>
+                <h3 class="font-bold text-neutral-800 dark:text-neutral-200 text-base font-display">${person}</h3>
+                <p class="text-[10px] text-neutral-500 font-bold uppercase tracking-wider">Planilha individual do colaborador</p>
+              </div>
+            </div>
+            <span class="text-xs bg-teal-50 dark:bg-teal-950/30 text-teal-700 dark:text-teal-400 font-extrabold px-3 py-1 rounded-full border border-teal-100 dark:border-teal-900/40">
+              ${sorted.length} ${sorted.length === 1 ? 'escala' : 'escalas'}
+            </span>
+          </header>
+          <div class="divide-y divide-neutral-100 dark:divide-neutral-850">
+        `;
+
+        sorted.forEach(shift => {
+          htmlString += `
+            <div class="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-neutral-50/50 dark:hover:bg-neutral-955 transition-all">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 flex-1">
+                <div>
+                  <span class="text-[10px] uppercase font-bold tracking-widest text-neutral-400 dark:text-neutral-500">Data plantão</span>
+                  <p class="text-sm font-extrabold text-neutral-800 dark:text-neutral-200 mt-0.5">${formatReadableDate(shift.date)}</p>
+                </div>
+                <div>
+                  <span class="text-[10px] uppercase font-bold tracking-widest text-neutral-400 dark:text-neutral-500">Troca pelo dia</span>
+                  <p class="text-sm font-semibold text-neutral-600 dark:text-neutral-400 mt-0.5">
+                    ${shift.swapForDate ? formatReadableDate(shift.swapForDate) : '<span class="text-neutral-400 italic">Sem troca compensatória</span>'}
+                  </p>
+                </div>
+              </div>
+
+              <!-- Status \& Ações -->
+              <div class="flex flex-wrap items-center gap-3 shrink-0">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider shadow-sm border ${
+                  shift.atHome === '-x-'
+                    ? 'bg-rose-50 border-rose-100 text-rose-800 dark:bg-rose-950/40 dark:border-rose-900/40 dark:text-rose-300'
+                    : 'bg-emerald-50 border-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:border-emerald-900/40 dark:text-emerald-300'
+                }">
+                  ${shift.atHome === '-x-' ? 'Ocupado / Turno' : 'Fica em casa: ' + shift.atHome}
+                </span>
+
+                <div class="flex items-center gap-1.5">
+                  <button type="button" onclick="quickSwapShiftStatus('${shift.id}')" class="px-3 py-2 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-xl hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-250 dark:border-neutral-750 transition-all text-xs font-bold" title="Alternar status">
+                    Alternar
+                  </button>
+                  <button type="button" onclick="deleteShift('${shift.id}')" class="p-2 text-neutral-400 hover:text-rose-600 rounded-xl hover:bg-rose-50 dark:hover:bg-rose-950/20 border border-neutral-200 dark:border-neutral-700/60 transition-all">
+                    Deletar
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        htmlString += `</div>`;
+        cardObj.innerHTML = htmlString;
+        el.listViewSection.appendChild(cardObj);
+      });
+    }
+
+    // 10. ABA DE GERENCIAMENTO DE FOLGAS DO PERÍODO
+    function renderLeavesView() {
+      el.leavesViewSection.innerHTML = '';
+      
+      const year = state.currentMonth.getFullYear();
+      const month = state.currentMonth.getMonth();
+
+      // Filtra folgas
+      const monthOffs = state.offDays.filter(o => {
+        const d = new Date(o.date + 'T00:00:00');
+        return d.getMonth() === month && d.getFullYear() === year;
+      });
+
+      if (!monthOffs.length) {
+        el.leavesViewSection.innerHTML = `
+          <div class="col-span-full border border-dashed border-neutral-200 dark:border-neutral-800 rounded-3xl p-10 text-center bg-white dark:bg-neutral-900 shadow-sm">
+            <i data-lucide="heart" class="w-12 h-12 text-neutral-300 dark:text-neutral-600 mx-auto mb-4"></i>
+            <h4 class="font-extrabold text-neutral-800 dark:text-neutral-200 text-lg">Nenhuma folga neste período</h4>
+            <p class="text-neutral-500 text-sm mt-1 max-w-sm mx-auto">
+              Aproveite os dias livres! Caso precise agendar descansos, agende tocando em (+) ou em datas do calendário.
+            </p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      monthOffs.forEach(off => {
+        const itemObj = document.createElement('article');
+        itemObj.className = "bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-5 shadow-sm hover:shadow-md transition-all flex justify-between items-start gap-4 relative overflow-hidden group";
+
+        const accentBar = document.createElement('div');
+        accentBar.className = `absolute top-0 left-0 right-0 h-1.5 ${off.type === 'mensal' ? 'bg-indigo-500' : 'bg-purple-500'}`;
+        itemObj.appendChild(accentBar);
+
+        const contentDiv = document.createElement('div');
+        contentDiv.className = "flex flex-col gap-3";
+
+        const badge = document.createElement('span');
+        badge.className = `inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[9px] font-extrabold uppercase tracking-widest ${
+          off.type === 'mensal'
+            ? 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/40'
+            : 'bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-400 border border-purple-100 dark:border-purple-900/40'
+        }`;
+        badge.textContent = off.type === 'mensal' ? '★ Folga Mensal' : '⬥ Folga Extra';
+        contentDiv.appendChild(badge);
+
+        const identity = document.createElement('div');
+        identity.className = "flex items-center gap-2.5 mt-1";
+
+        const iconCol = document.createElement('div');
+        iconCol.className = `w-8 h-8 rounded-lg flex items-center justify-center font-extrabold shadow-sm text-xs ${getCollaboratorColorClass(off.name)}`;
+        iconCol.textContent = off.name[0].toUpperCase();
+        identity.appendChild(iconCol);
+
+        const nameSpan = document.createElement('h4');
+        nameSpan.className = "font-extrabold text-neutral-800 dark:text-neutral-100 text-lg font-display truncate";
+        nameSpan.textContent = off.name;
+        identity.appendChild(nameSpan);
+
+        contentDiv.appendChild(identity);
+
+        const dateDetail = document.createElement('div');
+        dateDetail.className = "text-xs text-neutral-500 font-medium";
+        dateDetail.textContent = `📅 ${formatReadableDate(off.date)}`;
+        contentDiv.appendChild(dateDetail);
+
+        itemObj.appendChild(contentDiv);
+
+        // Deletar
+        const deleteBtn = document.createElement('button');
+        deleteBtn.type = "button";
+        deleteBtn.className = "p-2.5 bg-neutral-50 dark:bg-neutral-950 border border-neutral-150 dark:border-neutral-850 hover:border-rose-100 text-neutral-400 hover:text-rose-600 rounded-2xl hover:bg-rose-50 transition-all";
+        deleteBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>`;
+        deleteBtn.onclick = () => deleteOffDay(off.id);
+        
+        itemObj.appendChild(deleteBtn);
+        el.leavesViewSection.appendChild(itemObj);
+      });
+    }
+
+    // 11. ATUALIZAÇÃO DOS COMPONENTES DE ESTATÍSTICA
+    function updateStats() {
+      const year = state.currentMonth.getFullYear();
+      const month = state.currentMonth.getMonth();
+
+      // Filtrados correspondentes
+      const currentShifts = state.shifts.filter(s => {
+        const d = new Date(s.date + 'T00:00:00');
+        return d.getMonth() === month && d.getFullYear() === year;
+      });
+
+      const currentOffs = state.offDays.filter(o => {
+        const d = new Date(o.date + 'T00:00:00');
+        return d.getMonth() === month && d.getFullYear() === year;
+      });
+
+      // Cálculos
+      el.statTotalShifts.textContent = currentShifts.length;
+      el.statSwapped.textContent = currentShifts.filter(s => s.swapForDate).length;
+      el.statLeaves.textContent = currentOffs.length;
+
+      // Líder de plantões no mês
+      const tallies = {};
+      currentShifts.forEach(c => {
+        tallies[c.onShift] = (tallies[c.onShift] || 0) + 1;
+      });
+
+      let winner = '-';
+      let count = 0;
+      Object.entries(tallies).forEach(([n, c]) => {
+        if (c > count) {
+          count = c;
+          winner = n;
+        }
+      });
+
+      el.statLeaderName.textContent = winner;
+      el.statLeaderSub.textContent = count > 0 ? `${count} turnos lançados` : 'Sem atividades';
+    }
+
+    // 12. GERENCIADOR DE CREW/COLABORADORES DA EQUIPE
+    function renderCollaborators() {
+      el.collaboratorsGrid.innerHTML = '';
+      el.formPerson.innerHTML = ''; // Limpa opções modal
+
+      // Tallies da equipe inteira
+      const shiftTallies = {};
+      state.shifts.forEach(s => { shiftTallies[s.onShift] = (shiftTallies[s.onShift] || 0) + 1; });
+      const offTallies = {};
+      state.offDays.forEach(o => { offTallies[o.name] = (offTallies[o.name] || 0) + 1; });
+
+      el.teamCount.textContent = state.collaborators.length;
+
+      state.collaborators.forEach(c => {
+        // Opção do dropdown do modal
+        const opt = document.createElement('option');
+        opt.value = c.name;
+        opt.textContent = c.name;
+        el.formPerson.appendChild(opt);
+
+        // Cartão para visual de colaboradores
+        const card = document.createElement('div');
+        card.className = "flex items-center justify-between gap-3 p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850";
+
+        const leftSide = document.createElement('div');
+        leftSide.className = "flex items-center gap-2.5 min-w-0";
+
+        const colAvatar = document.createElement('div');
+        colAvatar.className = `w-9 h-9 rounded-xl flex items-center justify-center font-extrabold shadow-sm text-sm uppercase shrink-0 ${c.color}`;
+        colAvatar.textContent = c.avatarChar;
+        leftSide.appendChild(colAvatar);
+
+        const meta = document.createElement('div');
+        meta.className = "min-w-0";
+        
+        const titleName = document.createElement('h4');
+        titleName.className = "font-bold text-xs md:text-sm text-neutral-850 dark:text-neutral-200 truncate";
+        titleName.textContent = c.name;
+        meta.appendChild(titleName);
+
+        const subTitle = document.createElement('p');
+        subTitle.className = "text-[10px] text-neutral-500 font-medium";
+        const hasShifts = shiftTallies[c.name] || 0;
+        const hasOffs = offTallies[c.name] || 0;
+        subTitle.textContent = `${hasShifts} ${hasShifts === 1 ? 'plantão' : 'plantões'} • ${hasOffs} ${hasOffs === 1 ? 'folga' : 'folgas'}`;
+        meta.appendChild(subTitle);
+
+        leftSide.appendChild(meta);
+        card.appendChild(leftSide);
+
+        // Excluir apenas os criados adicionais (Reginaldo/Agenor protegidos por padrão)
+        if (c.name !== 'Reginaldo' && c.name !== 'Agenor') {
+          const delBtn = document.createElement('button');
+          delBtn.className = "text-neutral-400 hover:text-rose-600 dark:hover:text-rose-400 p-2 rounded-xl hover:bg-rose-50 transition-all";
+          delBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path></svg>`;
+          delBtn.onclick = () => removeCollaborator(c.id);
+          card.appendChild(delBtn);
+        }
+
+        el.collaboratorsGrid.appendChild(card);
+      });
+
+      // Avatares de rodapé
+      el.footerAvatars.innerHTML = '';
+      state.collaborators.slice(0, 3).forEach(c => {
+        const item = document.createElement('div');
+        item.className = `w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-xs uppercase border-2 border-white dark:border-neutral-900 ${c.color} shrink-0 -mr-2 shadow-sm`;
+        item.textContent = c.avatarChar;
+        item.title = c.name;
+        el.footerAvatars.appendChild(item);
+      });
+
+      if (state.collaborators.length > 3) {
+        const placeholder = document.createElement('div');
+        placeholder.className = "w-8 h-8 rounded-full bg-neutral-300 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 font-bold text-xs flex items-center justify-center border-2 border-white dark:border-neutral-900 select-none";
+        placeholder.textContent = `+${state.collaborators.length - 3}`;
+        el.footerAvatars.appendChild(placeholder);
+      }
+    }
+
+    function toggleCollaboratorForm() {
+      const isHidden = el.addCollaboratorForm.classList.contains('hidden');
+      if (isHidden) {
+        el.addCollaboratorForm.classList.remove('hidden');
+        el.btnColabToggleText.textContent = "Fechar";
+        el.newColabName.focus();
+      } else {
+        el.addCollaboratorForm.classList.add('hidden');
+        el.btnColabToggleText.textContent = "Novo integrante";
+        el.newColabName.value = '';
+      }
+    }
+
+    function selectColabColor(colorClass, btn) {
+      // Ajusta visualização do marcador da cor selecionada nas bolinhas de preset do formulário
+      state.selectedColor = btn.dataset.color || colorClass + ' text-white';
+      
+      const parent = btn.parentElement;
+      const buttons = parent.querySelectorAll('button');
+      buttons.forEach(b => {
+        b.className = b.className.replace('ring-2 ring-teal-500 scale-110', '').trim();
+      });
+      btn.className += " ring-2 ring-teal-500 scale-110";
+    }
+
+    function submitCollaborator() {
+      const name = el.newColabName.value.trim();
+      if (!name) {
+        showToast('O nome é obrigatório.', 'error');
+        return;
+      }
+
+      if (state.collaborators.some(c => c.name.toLowerCase() === name.toLowerCase())) {
+        showToast('Colaborador com este nome já cadastrado.', 'error');
+        return;
+      }
+
+      const colId = 'col_' + Math.random().toString(36).substring(2, 11);
+      state.collaborators.push({
+        id: colId,
+        name,
+        color: state.selectedColor,
+        avatarChar: name[0].toUpperCase()
+      });
+
+      showToast(`Membro "${name}" vinculado à escala.`, 'success');
+      toggleCollaboratorForm();
+      saveAllToLocalStorage();
+      renderAll();
+    }
+
+    function removeCollaborator(id) {
+      const target = state.collaborators.find(c => c.id === id);
+      if (!target) return;
+
+      // Verificação de associação ativa
+      const hasShiftsAssoc = state.shifts.some(s => s.onShift.toLowerCase() === target.name.toLowerCase());
+      const hasOffsAssoc = state.offDays.some(o => o.name.toLowerCase() === target.name.toLowerCase());
+
+      if (hasShiftsAssoc || hasOffsAssoc) {
+        showToast(`Impossível remover "${target.name}". Há histórico nesta planilha.`, 'error');
+        return;
+      }
+
+      state.collaborators = state.collaborators.filter(c => c.id !== id);
+      showToast(`Membro da equipe foi desvinculado.`, 'info');
+      saveAllToLocalStorage();
+      renderAll();
+    }
+
+    // 13. GERENCIADOR DO DIÁLOGO MODAL (FORM EVENT FLOW)
+    function openModal() {
+      // Limpa dados de possíveis edições anteriores
+      el.entryId.value = '';
+      el.formDate.value = new Date().toISOString().split('T')[0];
+      el.formPerson.selectedIndex = 0;
+      el.formSwapDate.value = '';
+      setFormAtHomeStatus('-x-');
+      setFormLeaveType('mensal');
+
+      // Cabeçalho dinâmico
+      el.modalTitleText.textContent = state.activeTab === 'dashboard' ? 'Lançar Novo Plantão' : 'Agendar Nova Folga';
+      
+      toggleModalFields();
+      
+      el.modalContainer.classList.remove('hidden');
+      el.modalContainer.classList.add('flex');
+    }
+
+    function openModalWithParams(dateStr) {
+      openModal();
+      el.formDate.value = dateStr;
+    }
+
+    function toggleModalFields() {
+      if (state.activeTab === 'dashboard') {
+        el.fieldsDashboard.classList.remove('hidden');
+        el.fieldsLeaves.classList.add('hidden');
+      } else {
+        el.fieldsDashboard.classList.add('hidden');
+        el.fieldsLeaves.classList.remove('hidden');
+      }
+    }
+
+    function closeModal() {
+      el.modalContainer.classList.add('hidden');
+      el.modalContainer.classList.remove('flex');
+    }
+
+    function setFormAtHomeStatus(status) {
+      if (status === '-x-') {
+        el.btnStatusOcupado.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-rose-50 text-rose-800 dark:bg-rose-955 shadow-sm";
+        el.btnStatusCasa.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500 hover:text-neutral-700";
+        el.formAtHomeValue.value = '-x-';
+      } else {
+        el.btnStatusCasa.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-emerald-50 text-emerald-800 dark:bg-emerald-955 shadow-sm";
+        el.btnStatusOcupado.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500 hover:text-neutral-700";
+        el.formAtHomeValue.value = 'casa';
+      }
+    }
+
+    function setFormLeaveType(type) {
+      if (type === 'mensal') {
+        el.btnLeaveMensal.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-white dark:bg-neutral-900 text-teal-700 shadow-sm";
+        el.btnLeaveExtra.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500 hover:text-neutral-750";
+        el.formLeaveValue.value = 'mensal';
+      } else {
+        el.btnLeaveExtra.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-white dark:bg-neutral-900 text-teal-700 shadow-sm";
+        el.btnLeaveMensal.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500 hover:text-neutral-750";
+        el.formLeaveValue.value = 'extra';
+      }
+    }
+
+    function saveEntry(event) {
+      event.preventDefault();
+      
+      const idVal = el.entryId.value;
+      const dateVal = el.formDate.value;
+      const personVal = el.formPerson.value;
+
+      if (!dateVal || !personVal) return;
+
+      if (state.activeTab === 'dashboard') {
+        const isCasa = el.formAtHomeValue.value === 'casa';
+        const shiftObj = {
+          id: idVal || 'shift_' + Math.random().toString(36).substring(2, 11),
+          date: dateVal,
+          onShift: personVal,
+          swapForDate: el.formSwapDate.value || '',
+          atHome: isCasa ? personVal : '-x-'
+        };
+
+        if (idVal) {
+          state.shifts = state.shifts.map(s => s.id === idVal ? shiftObj : s);
+          showToast('Turno de plantão modificado.', 'success');
+        } else {
+          state.shifts.push(shiftObj);
+          showToast('Troca de plantão agendada.', 'success');
+        }
+      } else {
+        const offObj = {
+          id: idVal || 'off_' + Math.random().toString(36).substring(2, 11),
+          date: dateVal,
+          name: personVal,
+          type: el.formLeaveValue.value
+        };
+
+        if (idVal) {
+          state.offDays = state.offDays.map(o => o.id === idVal ? offObj : o);
+          showToast('Registro de folga alterado.', 'success');
+        } else {
+          state.offDays.push(offObj);
+          showToast('Nova folga programada!', 'success');
+        }
+      }
+
+      closeModal();
+      saveAllToLocalStorage();
+      renderAll();
+    }
+
+    // 14. EDITAÇÕES EXTERNAS DIRETAS (EDIT EVENT HANDLERS)
+    function editShiftItem(id) {
+      const match = state.shifts.find(s => s.id === id);
+      if (!match) return;
+
+      // Altera aba de visualização caso necessário
+      state.activeTab = 'dashboard';
+      toggleModalFields();
+
+      el.entryId.value = match.id;
+      el.formDate.value = match.date;
+      el.formPerson.value = match.onShift;
+      el.formSwapDate.value = match.swapForDate || '';
+      
+      setFormAtHomeStatus(match.atHome);
+
+      el.modalTitleText.textContent = "Editar Troca de Plantão";
+      el.modalContainer.classList.remove('hidden');
+      el.modalContainer.classList.add('flex');
+    }
+
+    function editOffDayItem(id) {
+      const match = state.offDays.find(o => o.id === id);
+      if (!match) return;
+
+      // Altera aba de visualização caso necessário
+      state.activeTab = 'leaves';
+      toggleModalFields();
+
+      el.entryId.value = match.id;
+      el.formDate.value = match.date;
+      el.formPerson.value = match.name;
+      setFormLeaveType(match.type);
+
+      el.modalTitleText.textContent = "Editar Folga";
+      el.modalContainer.classList.remove('hidden');
+      el.modalContainer.classList.add('flex');
+    }
+
+    function quickSwapShiftStatus(id) {
+      state.shifts = state.shifts.map(s => {
+        if (s.id !== id) return s;
+        return {
+          ...s,
+          atHome: s.atHome === '-x-' ? s.onShift : '-x-'
+        };
+      });
+      showToast('Status de permanência alternado.', 'success');
+      saveAllToLocalStorage();
+      renderAll();
+    }
+
+    function deleteShift(id) {
+      state.shifts = state.shifts.filter(s => s.id !== id);
+      showToast('Escala de plantonista desfeita.', 'info');
+      saveAllToLocalStorage();
+      renderAll();
+    }
+
+    function deleteOffDay(id) {
+      state.offDays = state.offDays.filter(o => o.id !== id);
+      showToast('Reserva de descanso rejeitada.', 'info');
+      saveAllToLocalStorage();
+      renderAll();
+    }
+
+    // 15. SISTEMA DE TRANSMISSÃO E PARILHA DE DADOS (SHARE FLOW)
+    function compartilharEscala() {
+      const shareData = {
+        title: 'ShiftExchange Pro',
+        text: 'Veja nossa escala consolidada de trocas de plantões e folgas!',
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        navigator.share(shareData)
+          .then(() => showToast('Configuração de trocas enviada com sucesso.', 'success'))
+          .catch(() => {});
+      } else {
+        // Fallback Clipboard copy
+        navigator.clipboard.writeText(window.location.href)
+          .then(() => showToast('Link de acesso copiado para a área de transferência!', 'info'))
+          .catch(() => showToast('Impossível copiar link.', 'error'));
+      }
+    }
+
+    function triggerInstallation() {
+      showToast('PWA Instalável Ativo! Adicione o app na tela inicial do seu dispositivo.', 'info');
+    }
+
+    // 16. CHAVEAMENTOS DIVERSOS DO TEMA VISUAL (DARK MODE SWITCH)
+    function initializeTheme() {
+      if (state.theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        el.themeToggleBtn.innerHTML = '<i data-lucide="sun" class="w-4 h-4 text-amber-400"></i>';
+      } else {
+        document.documentElement.classList.remove('dark');
+        el.themeToggleBtn.innerHTML = '<i data-lucide="moon" class="w-4 h-4 text-teal-600"></i>';
+      }
+      lucide.createIcons();
+    }
+
+    el.themeToggleBtn.addEventListener('click', () => {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme_v4', state.theme);
+      initializeTheme();
+    });
+
+    // 17. ARQUITETURA CONJUNTA DE ATUALIZAÇÃO (RENDERING ENGINE)
+    function renderAll() {
+      // Nome do mês
+      el.currentMonthDisplay.textContent = formatMonthYear(state.currentMonth);
+      
+      // Chaveamento de exibições
+      if (state.activeTab === 'dashboard') {
+        el.leavesViewSection.classList.add('hidden');
+        if (state.viewMode === 'calendar') {
+          el.calendarViewSection.classList.remove('hidden');
+          el.listViewSection.classList.add('hidden');
+          renderCalendar();
+        } else {
+          el.calendarViewSection.classList.add('hidden');
+          el.listViewSection.classList.remove('hidden');
+          renderListView();
+        }
+      } else {
+        el.calendarViewSection.classList.add('hidden');
+        el.listViewSection.classList.add('hidden');
+        el.leavesViewSection.classList.remove('hidden');
+        renderLeavesView();
+      }
+
+      updateStats();
+      renderCollaborators();
+      
+      // Criação de ícones dinâmicos do lucide
+      lucide.createIcons();
+    }
+
+    // Inicialização da Aplicação
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTheme();
+      renderAll();
+    });
+  </script>
+
+
+</body></html>
