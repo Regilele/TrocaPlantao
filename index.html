@@ -1,1 +1,1684 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#01696f" />
+  <meta name="description" content="ShiftExchange Pro - Gestão integrada de escalas, trocas de plantão e folgas com conformidade automática." />
+  <title>ShiftExchange Pro - Controle Integrado de Escalas, Trocas e Folgas</title>
+  
+  <!-- Fontes Premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(156, 163, 175, 0.3);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(156, 163, 175, 0.5);
+    }
+    
+    /* Smooth Transitions & Animations */
+    * {
+      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .animate-slide-up {
+      animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-[#121110] text-neutral-850 dark:text-neutral-250 font-sans transition-colors duration-200 pb-28 md:pb-24">
+
+  <!-- Acessibilidade: Skip link -->
+  <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-teal-600 text-white font-extrabold px-4 py-2.5 rounded-xl shadow-lg" href="#main-content">
+    Ir para o conteúdo principal
+  </a>
+
+  <!-- Alerta / Toast Global -->
+  <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-3 px-5 py-3.5 rounded-2xl bg-neutral-900 dark:bg-neutral-800 text-white shadow-2xl max-w-sm w-11/12 border border-neutral-800 dark:border-neutral-700">
+    <i id="toast-icon" class="w-5 h-5 text-emerald-450 shrink-0"></i>
+    <span id="toast-message" class="text-sm font-medium flex-1 text-left">Mensagem explicativa</span>
+    <button type="button" onclick="hideToast()" class="text-neutral-450 hover:text-white p-1 rounded-md" aria-label="Fechar alerta">
+      <i data-lucide="x" class="w-4 h-4"></i>
+    </button>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-5 md:py-8">
+    
+    <!-- Cabeçalho Principal (Header) -->
+    <header id="topbar" class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 mb-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-sm sticky top-4 backdrop-blur-md bg-opacity-95 dark:bg-opacity-95 z-20">
+      <div class="flex items-center gap-3.5">
+        <div class="w-12 h-12 bg-teal-600 dark:bg-teal-500 rounded-2xl flex items-center justify-center text-white shadow-md shrink-0 select-none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+            <path d="M6 7h7a3 3 0 0 1 0 6H9"/>
+            <path d="M18 17h-7a3 3 0 0 1 0-6h4"/>
+            <path d="M8 5 5 8l3 3"/>
+            <path d="m16 13 3 3-3 3"/>
+          </svg>
+        </div>
+        
+        <div class="text-left">
+          <span class="text-[10px] uppercase font-mono font-extrabold tracking-widest text-teal-600 dark:text-teal-400">
+            Escala Integrada
+          </span>
+          <h1 class="text-xl font-extrabold text-neutral-900 dark:text-white tracking-tight leading-none mt-0.5">
+            ShiftExchange Pro
+          </h1>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+        <!-- Instalação Simulável -->
+        <button type="button" onclick="triggerInstallation()" class="px-3.5 py-1.5 text-xs font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/35 border border-teal-100 dark:border-teal-900 rounded-xl hover:bg-teal-100 dark:hover:bg-teal-900/50 transition-all flex items-center gap-1.5">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Instalar App</span>
+        </button>
+
+        <!-- Botão Dark Mode -->
+        <button type="button" id="theme-toggle-btn" onclick="toggleTheme()" class="p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all text-neutral-600 dark:text-neutral-400" title="Alternar tema visual" aria-label="Alternar tema">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4 text-teal-600"></i>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      
+      <!-- Seletor de Período Mensal -->
+      <section class="flex items-center justify-between gap-4 p-4 mb-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-850 rounded-3xl shadow-sm select-none" aria-label="Nador de meses">
+        <button type="button" onclick="navigateMonth(-1)" class="p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all text-neutral-650 dark:text-neutral-400" aria-label="Mês anterior">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </button>
+        <div class="text-center">
+          <span class="text-[9px] uppercase font-bold tracking-widest text-neutral-400 dark:text-neutral-500 font-display block">
+            Escala Ativa
+          </span>
+          <h2 id="current-month-display" class="text-sm sm:text-base font-extrabold text-teal-700 dark:text-teal-400 uppercase tracking-wider font-display">
+            JUNHO DE 2026
+          </h2>
+        </div>
+        <button type="button" onclick="navigateMonth(1)" class="p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all text-neutral-650 dark:text-neutral-400" aria-label="Próximo mês">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+      </section>
+
+      <!-- Grade de Métricas e Estatísticas Estatísticas -->
+      <section id="stats-dashboard" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <!-- Métrica 1 -->
+        <div class="bg-white dark:bg-neutral-900 p-4 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-neutral-400 mb-2">
+            <i data-lucide="book-open" class="w-5 h-5 text-teal-600 dark:text-teal-400"></i>
+            <span class="text-[10px] uppercase font-bold tracking-widest font-display">Plantões</span>
+          </div>
+          <div>
+            <h4 id="stat-total-shifts" class="text-3xl font-extrabold text-neutral-800 dark:text-neutral-100 tracking-tight">0</h4>
+            <p id="stat-subtext-month" class="text-[11px] text-neutral-500 font-medium mt-1 truncate">Agendados no período</p>
+          </div>
+        </div>
+
+        <!-- Métrica 2 -->
+        <div class="bg-white dark:bg-neutral-900 p-4 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-neutral-400 mb-2">
+            <i data-lucide="repeat" class="w-5 h-5 text-indigo-600 dark:text-indigo-400"></i>
+            <span class="text-[10px] uppercase font-bold tracking-widest font-display">Trocas</span>
+          </div>
+          <div>
+            <h4 id="stat-swapped" class="text-3xl font-extrabold text-neutral-800 dark:text-neutral-100 tracking-tight">0</h4>
+            <p class="text-[11px] text-neutral-500 font-medium mt-1 truncate">Permutas de compensação</p>
+          </div>
+        </div>
+
+        <!-- Métrica 3 -->
+        <div class="bg-white dark:bg-neutral-900 p-4 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-neutral-450 mb-2">
+            <i data-lucide="smile" class="w-5 h-5 text-purple-600 dark:text-purple-400"></i>
+            <span class="text-[10px] uppercase font-bold tracking-widest font-display">Folgas</span>
+          </div>
+          <div>
+            <h4 id="stat-leaves" class="text-3xl font-extrabold text-neutral-800 dark:text-neutral-100 tracking-tight">0</h4>
+            <p class="text-[11px] text-neutral-500 font-medium mt-1 truncate">Descansos planejados</p>
+          </div>
+        </div>
+
+        <!-- Métrica 4 -->
+        <div class="bg-white dark:bg-neutral-900 p-4 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-sm flex flex-col justify-between col-span-2 md:col-span-1">
+          <div class="flex items-center justify-between text-neutral-450 mb-2">
+            <i data-lucide="award" class="w-5 h-5 text-amber-500"></i>
+            <span class="text-[10px] uppercase font-bold tracking-widest font-display">Líder</span>
+          </div>
+          <div>
+            <h4 id="stat-leader-name" class="text-xl font-extrabold text-neutral-800 dark:text-neutral-100 tracking-tight truncate">-</h4>
+            <p id="stat-leader-sub" class="text-[11px] text-neutral-500 font-medium mt-1">Nenhum evento</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Abas de Navegação de Atividade -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6">
+        
+        <!-- Seletores de Abas -->
+        <nav class="grid grid-cols-2 bg-neutral-200/60 dark:bg-neutral-950/70 p-1 rounded-2xl border border-neutral-250 dark:border-neutral-850 flex-1/2">
+          <button type="button" onclick="switchActiveTab('dashboard')" id="tab-dashboard" class="py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-400 shadow-sm">
+            <i data-lucide="calendar" class="w-4 h-4 text-teal-600 shrink-0"></i>
+            <span>Escala Trocas</span>
+          </button>
+          
+          <button type="button" onclick="switchActiveTab('leaves')" id="tab-leaves" class="py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 text-neutral-500 hover:text-neutral-800 dark:text-neutral-400">
+            <i data-lucide="file-text" class="w-4 h-4 shrink-0"></i>
+            <span>Minhas Folgas</span>
+          </button>
+        </nav>
+
+        <!-- Controles de Exibição de Grade/Lista -->
+        <div id="view-mode-panel" class="flex items-center gap-1.5 bg-neutral-200/50 dark:bg-neutral-950/70 p-1 rounded-xl self-end sm:self-auto">
+          <button type="button" onclick="switchViewMode('calendar')" id="btn-view-calendar" class="p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-400 shadow-sm scale-100 hover:scale-[1.02] active:scale-[0.98]">
+            <i data-lucide="grid" class="w-4 h-4"></i>
+            <span>Visual Grade</span>
+          </button>
+          <button type="button" onclick="switchViewMode('list')" id="btn-view-list" class="p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold text-neutral-500 hover:text-neutral-850 dark:hover:text-neutral-300">
+            <i data-lucide="list" class="w-4 h-4"></i>
+            <span>Lista Group</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Caixa de Mensagem Informativa de Ajuda -->
+      <div class="bg-teal-50/50 dark:bg-teal-950/10 border border-teal-100/70 dark:border-teal-900/20 rounded-2xl p-3.5 mb-6 text-xs text-neutral-600 dark:text-teal-450 flex items-center gap-2.5 leading-relaxed">
+        <i data-lucide="info" class="w-4 h-4 text-teal-600 dark:text-teal-400 shrink-0"></i>
+        <p>
+          <strong>Dica Prática:</strong> Toque ou clique em qualquer quadrado/dia do calendário para lançar automaticamente uma nova permuta de plantão ou folga programada diretamente na data desejada!
+        </p>
+      </div>
+
+      <!-- Área de Visualização Principal Dinâmica -->
+      <div id="content-container" class="space-y-6">
+        
+        <!-- 1. Visual Módulo: Calendário Mensal -->
+        <div id="calendar-section" class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-5 shadow-lg">
+          <div class="flex items-center gap-3 mb-4 text-neutral-800 dark:text-neutral-200">
+            <i data-lucide="calendar" class="w-5 h-5 text-teal-600 dark:text-teal-400"></i>
+            <span class="text-sm font-semibold uppercase tracking-wider font-display">Calendário Geral de Plantões e Folgas</span>
+          </div>
+
+          <div class="grid grid-cols-7 gap-1 md:gap-2 mb-2 text-center border-b border-neutral-100 dark:border-neutral-800 pb-2">
+            <div class="text-xs font-bold py-1.5 text-neutral-450 uppercase tracking-widest">Dom</div>
+            <div class="text-xs font-bold py-1.5 text-neutral-450 uppercase tracking-widest">Seg</div>
+            <div class="text-xs font-bold py-1.5 text-neutral-450 uppercase tracking-widest">Ter</div>
+            <div class="text-xs font-bold py-1.5 text-neutral-450 uppercase tracking-widest">Qua</div>
+            <div class="text-xs font-bold py-1.5 text-neutral-450 uppercase tracking-widest">Qui</div>
+            <div class="text-xs font-bold py-1.5 text-neutral-450 uppercase tracking-widest">Sex</div>
+            <div class="text-xs font-bold py-1.5 text-neutral-450 uppercase tracking-widest">Sáb</div>
+          </div>
+
+          <div id="calendar-grid" class="grid grid-cols-7 gap-1 md:gap-2 min-h-[360px]">
+            <!-- Células construídas dinamicamente por JS -->
+          </div>
+        </div>
+
+        <!-- 2. Visual Módulo: Lista Group por Pessoa -->
+        <div id="list-section" class="hidden flex flex-col gap-6">
+          <!-- Inserido dinamicamente por JS -->
+        </div>
+
+        <!-- 3. Visual Módulo: Lista de Folgas Cadastradas -->
+        <div id="leaves-section" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Inserido dinamicamente por JS -->
+        </div>
+
+        <!-- 4. Visual Módulo: Gerenciador Integrado de Parceiros / Equipe -->
+        <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-5 shadow-lg">
+          <div class="flex items-center justify-between gap-4 mb-4">
+            <div class="flex items-center gap-3 text-neutral-800 dark:text-neutral-200">
+              <i data-lucide="users" class="w-5 h-5 text-teal-600 dark:text-teal-400"></i>
+              <h3 class="font-semibold text-base font-display">Equipe do Plantão (<span id="colab-count-badge">0</span>)</h3>
+            </div>
+            
+            <button type="button" onclick="toggleColabForm()" class="text-xs bg-neutral-100 dark:bg-neutral-850 hover:bg-neutral-200 text-teal-700 dark:text-teal-400 font-extrabold px-3 py-1.5 rounded-xl border border-neutral-200 dark:border-neutral-800 flex items-center gap-2">
+              <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
+              <span id="colab-btn-text">Novo integrante</span>
+            </button>
+          </div>
+
+          <!-- Formulário Registrar Colaborador Adicional -->
+          <div id="colab-form-container" class="hidden mb-4 p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-850 animate-fade-in">
+            <h4 class="text-xs uppercase font-extrabold tracking-widest text-neutral-500 mb-3 block">Cadastrar Colaborador</h4>
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-1.5">
+                <label for="colab-input-name" class="text-xs font-bold text-neutral-450 dark:text-neutral-400 uppercase tracking-wider">Nome Completo / Apelido</label>
+                <input id="colab-input-name" type="text" placeholder="Ex: Camila Santos" class="w-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl px-3.5 py-2 text-sm text-neutral-800 dark:text-neutral-200 focus:outline-none focus:border-teal-500" />
+              </div>
+              
+              <div class="flex flex-col gap-1.5">
+                <span class="text-xs font-bold text-neutral-450 dark:text-neutral-400 uppercase tracking-wider">Selecione Cor de Categoria</span>
+                <div class="flex gap-2.5 flex-wrap">
+                  <button type="button" onclick="selectFormColor('bg-indigo-600 text-white', this)" class="w-7 h-7 rounded-md bg-indigo-600 ring-2 ring-teal-500 ring-offset-2 dark:ring-offset-neutral-900 border-2 border-white" title="Índigo"></button>
+                  <button type="button" onclick="selectFormColor('bg-emerald-600 text-white', this)" class="w-7 h-7 rounded-md bg-emerald-600 border-2 border-white" title="Esmeralda"></button>
+                  <button type="button" onclick="selectFormColor('bg-amber-600 text-white', this)" class="w-7 h-7 rounded-md bg-amber-600 border-2 border-white" title="Âmbar"></button>
+                  <button type="button" onclick="selectFormColor('bg-rose-600 text-white', this)" class="w-7 h-7 rounded-md bg-rose-600 border-2 border-white" title="Rosa/Vermelho"></button>
+                  <button type="button" onclick="selectFormColor('bg-sky-600 text-white', this)" class="w-7 h-7 rounded-md bg-sky-600 border-2 border-white" title="Céu/Azul"></button>
+                  <button type="button" onclick="selectFormColor('bg-purple-600 text-white', this)" class="w-7 h-7 rounded-md bg-purple-600 border-2 border-white" title="Roxo"></button>
+                  <button type="button" onclick="selectFormColor('bg-teal-600 text-white', this)" class="w-7 h-7 rounded-md bg-teal-600 border-2 border-white" title="Teal"></button>
+                </div>
+              </div>
+
+              <button type="button" onclick="saveNewCollaborator()" class="mt-2 w-full bg-teal-600 hover:bg-teal-700 text-white font-bold p-2.5 rounded-xl text-sm shadow-md flex items-center justify-center gap-2">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                Adicionar Colaborador
+              </button>
+            </div>
+          </div>
+
+          <!-- Grade de Lista dos Cadastrados -->
+          <div id="colabs-list-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pb-1">
+            <!-- Gerado via JS -->
+          </div>
+        </div>
+
+        <!-- 5. Visual Módulo: Hub de Recursos Pro / WhatsApp / CLT / Auditoria -->
+        <section id="resource-hub" class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl overflow-hidden shadow-lg p-5">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-100 dark:border-neutral-800 pb-4 mb-5">
+            <div class="flex items-center gap-3">
+              <i data-lucide="sparkles" class="w-5 h-5 text-teal-600 dark:text-teal-400 shrink-0"></i>
+              <div>
+                <h3 class="text-base font-extrabold text-neutral-800 dark:text-neutral-100 tracking-tight">Hub de Recursos Adicionais</h3>
+                <p class="text-xs text-neutral-500 font-medium">Auxiliares de escala, conformidade e leis ocupacionais</p>
+              </div>
+            </div>
+
+            <!-- Tabs Internas do Hub -->
+            <div class="flex items-center gap-1 bg-neutral-100 dark:bg-neutral-950 p-1 rounded-xl self-start">
+              <button type="button" onclick="switchHubTab('whatsapp')" id="hub-tab-whatsapp" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white dark:bg-neutral-800 text-teal-700 dark:text-teal-400 shadow-sm">
+                <i data-lucide="message-square" class="w-3.5 h-3.5 inline mr-1.5"></i>WhatsApp
+              </button>
+              
+              <button type="button" onclick="switchHubTab('alerts')" id="hub-tab-alerts" class="px-3 py-1.5 rounded-lg text-xs font-bold text-neutral-500 hover:text-neutral-800">
+                <i data-lucide="alert-triangle" class="w-3.5 h-3.5 inline mr-1.5"></i>Conformidade (<span id="alerts-count-badge">0</span>)
+              </button>
+
+              <button type="button" onclick="switchHubTab('clt')" id="hub-tab-clt" class="px-3 py-1.5 rounded-lg text-xs font-bold text-neutral-500 hover:text-neutral-800">
+                <i data-lucide="scale" class="w-3.5 h-3.5 inline mr-1.5"></i>Legislação CLT
+              </button>
+            </div>
+          </div>
+
+          <!-- Tab Hub 1: Gerador WhatsApp -->
+          <div id="hub-panel-whatsapp" class="space-y-4">
+            <div class="bg-emerald-500/5 dark:bg-emerald-950/10 border border-emerald-500/10 rounded-2xl p-4 flex gap-3 text-emerald-800 dark:text-emerald-400 text-xs leading-relaxed">
+              <i data-lucide="send" class="w-5 h-5 text-emerald-600 dark:text-emerald-450 shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="block mb-0.5">Formatação Rápida de Mensagens Administrativas</strong>
+                Crie um modelo formatado de forma limpa e envie para os grupos de colegas de trabalho para coordenar os turnos.
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Inputs do Gerador -->
+              <div class="space-y-3 bg-neutral-50 dark:bg-neutral-950/30 p-4 rounded-2xl border border-neutral-150 dark:border-neutral-850">
+                <h4 class="text-xs uppercase font-extrabold tracking-widest text-neutral-450 dark:text-neutral-500 flex items-center gap-1.5">
+                  <i data-lucide="bookmark" class="w-3.5 h-3.5"></i> Dados da Proposta
+                </h4>
+
+                <div>
+                  <label class="block text-[11px] font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-1">Quem propõe:</label>
+                  <select id="wap-proposing-select" onchange="updateWapMessage()" class="w-full text-xs p-2.5 rounded-xl border border-neutral-250 dark:border-neutral-800 bg-white dark:bg-neutral-900 focus:outline-none"></select>
+                </div>
+
+                <div>
+                  <label class="block text-[11px] font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-1">Seu plantão original:</label>
+                  <input type="date" id="wap-date-input" onchange="updateWapMessage()" class="w-full text-xs p-2.5 rounded-xl border border-neutral-250 dark:border-neutral-800 bg-white dark:bg-neutral-900 focus:outline-none" />
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-[11px] font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-1">Troca por qual data:</label>
+                    <input type="date" id="wap-target-date" onchange="updateWapMessage()" class="w-full text-[11px] p-2 dark:p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 focus:outline-none" />
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-1">Horário/Período:</label>
+                    <select id="wap-period-select" onchange="updateWapMessage()" class="w-full text-[11px] p-2 dark:p-1.5 h-9 md:h-10.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 focus:outline-none text-neutral-700 dark:text-neutral-305">
+                      <option>Diurno (12 Horas)</option>
+                      <option>Noturno (12 Horas)</option>
+                      <option>Plantão Integral (24h)</option>
+                      <option>Turno Manhã (6 Horas)</option>
+                      <option>Turno Tarde (6 Horas)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Output/Copy Preview -->
+              <div class="flex flex-col bg-neutral-950 text-neutral-100 p-4.5 rounded-3xl relative border border-neutral-850">
+                <span class="text-[10px] bg-neutral-850 text-neutral-400 px-2.5 py-1 rounded-full absolute right-4 top-4 font-mono font-bold uppercase tracking-widest">Feedback Prontidão</span>
+                <h4 class="text-xs uppercase font-extrabold tracking-widest text-neutral-500 mb-3">Mensagem a ser Copiada</h4>
+                
+                <div id="wap-text-preview" class="bg-neutral-900 text-xs p-3.5 rounded-2xl border border-neutral-800 font-mono text-neutral-300 leading-relaxed font-medium overflow-y-auto whitespace-pre-wrap max-h-52 flex-1 select-text">
+                  Carregando...
+                </div>
+
+                <button type="button" id="wap-btn-copy" onclick="copyWhatsappText()" class="mt-4 w-full py-3 bg-teal-600 hover:bg-teal-700 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                  <i data-lucide="copy" class="w-4 h-4"></i>
+                  <span>Copiar Proposta Pronta</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Hub 2: Conformidade e Alertas -->
+          <div id="hub-panel-alerts" class="hidden space-y-4">
+            <h4 class="text-xs uppercase font-extrabold tracking-widest text-neutral-450 dark:text-neutral-500">
+              Auditoria Automática de Escalas e Colisões
+            </h4>
+            <p class="text-xs text-neutral-500 leading-relaxed">
+              O sistema monitora em tempo real a integridade da escala, enviando alertas automáticos sobre duplicidades, choques cruzados de plantões agendados em datas de folga e fadiga ocupacional consecutiva.
+            </p>
+
+            <div id="alerts-audit-list" class="space-y-2.5 max-h-72 overflow-y-auto">
+              <!-- Gerado via JS -->
+            </div>
+          </div>
+
+          <!-- Tab Hub 3: Legislação CLT -->
+          <div id="hub-panel-clt" class="hidden space-y-4">
+            <div class="flex items-center gap-2 text-purple-700 dark:text-purple-400 border-b border-neutral-100 dark:border-neutral-800 pb-2">
+              <i data-lucide="scale" class="w-4 h-4 text-purple-600"></i>
+              <h4 class="text-xs uppercase font-extrabold tracking-widest">Legislação de Turnos & Boas Práticas Hospitalar/Escalas</h4>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-neutral-50 dark:bg-neutral-950/20 border border-neutral-150 p-4 rounded-2xl text-xs leading-relaxed">
+                <strong class="text-neutral-800 dark:text-neutral-200 block mb-1">Intervalo Interjornada Mínimo</strong>
+                <p class="text-neutral-500">Conforme o artigo 66 da CLT, é obrigatório um intervalo mínimo legal de descanso de 11 (onze) horas seguidas e ininterruptas entre duas jornadas de trabalho.</p>
+              </div>
+              <div class="bg-neutral-50 dark:bg-neutral-950/20 border border-neutral-150 p-4 rounded-2xl text-xs leading-relaxed">
+                <strong class="text-neutral-800 dark:text-neutral-200 block mb-1">Como Funciona a Escala 12x36?</strong>
+                <p class="text-neutral-500">O profissional trabalha por 12 horas corridas e folga obrigatoriamente as próximas 36 horas subsequentes de forma ininterrupta, garantindo o devido descanso biológico.</p>
+              </div>
+              <div class="bg-neutral-50 dark:bg-neutral-950/20 border border-neutral-150 p-4 rounded-2xl text-xs leading-relaxed">
+                <strong class="text-neutral-800 dark:text-neutral-200 block mb-1">DSR - Descanso Semanal Remunerado</strong>
+                <p class="text-neutral-500">Todo trabalhador tem direito a um descanso preferencialmente aos finais de semana, que não deve ser negligenciado ou suprimido por trocas consecutivas não supervisionadas.</p>
+              </div>
+              <div class="bg-neutral-50 dark:bg-neutral-950/20 border border-neutral-150 p-4 rounded-2xl text-xs leading-relaxed">
+                <strong class="text-neutral-800 dark:text-neutral-200 block mb-1">Permutas e Consentimento</strong>
+                <p class="text-neutral-500">Qualquer troca formal ou compensação deve passar pelo crivo e liberação da gerência médica, enfermagem ou diretoria do setor para garantir que não haja furos de escala.</p>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Botão de Ação Flutuante Redondo (+) -->
+  <button type="button" onclick="openAddModal()" class="fixed right-6 bottom-24 sm:bottom-28 w-14 h-14 bg-teal-600 hover:bg-teal-700 text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-xl z-30 transition-all scale-100 hover:scale-105 active:scale-95 cursor-pointer" aria-label="Adicionar registro novo">
+    <i data-lucide="plus" class="w-7 h-7"></i>
+  </button>
+
+  <!-- Rodapé Persistente de Informações Tecnológicas -->
+  <footer id="bottom-status-bar" class="fixed bottom-0 left-0 right-0 p-4 border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#151413] bg-opacity-95 dark:bg-opacity-95 backdrop-blur-md z-30">
+    <div class="max-w-4xl mx-auto flex flex-col xs:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        
+        <!-- Carrossel de Avatares da Equipe -->
+        <div id="footer-avatars" class="flex items-center select-none" aria-hidden="true">
+          <!-- Inserido dinamicamente via JS -->
+        </div>
+
+        <div class="text-left xs:ml-2">
+          <span class="text-[10px] uppercase font-bold tracking-widest text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-sans">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            PWA Local Ativo
+          </span>
+          <p class="text-xs text-neutral-500 font-semibold leading-none mt-0.5">
+            Modo Instalável & Offline habilitado
+          </p>
+        </div>
+      </div>
+
+      <button type="button" onclick="copiarLinkShare()" class="w-full xs:w-auto px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+        <i data-lucide="share-2" class="w-4 h-4"></i>
+        <span>Compartilhar Escala</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Modal Centralizado para Criação / Edição de Registro -->
+  <div id="modal-container" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-sm" onclick="closeModal()">
+    <div class="w-full sm:max-w-md bg-white dark:bg-neutral-900 rounded-t-3xl sm:rounded-3xl border border-neutral-200 dark:border-neutral-800 shadow-2xl p-6 overflow-hidden max-h-[92vh] sm:max-h-[85vh] flex flex-col animate-slide-up" onclick="event.stopPropagation()">
+      
+      <!-- Cabeçalho Janela -->
+      <div class="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
+        <div>
+          <span class="text-[10px] uppercase font-bold tracking-widest text-neutral-450 dark:text-neutral-500 font-display block">Formulário de Entrada</span>
+          <h3 id="modal-form-title" class="text-lg font-extrabold text-neutral-850 dark:text-neutral-100 tracking-tight leading-none mt-1">Lançar Novo Registro</h3>
+        </div>
+        <button type="button" onclick="closeModal()" class="p-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-white rounded-full bg-neutral-50 dark:bg-neutral-850 transition-all" aria-label="Fechar janela">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Formulário Completo -->
+      <form id="schedule-entry-form" onsubmit="handleFormSubmit(event)" class="flex-1 overflow-y-auto py-5 space-y-5">
+        
+        <input type="hidden" id="form-edit-id" value="" />
+
+        <!-- 1. Data do Evento -->
+        <div class="flex flex-col gap-1.5">
+          <label for="form-input-date" class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5">
+            <i data-lucide="calendar" class="w-4 h-4 text-teal-600"></i>
+            Data do Turno
+          </label>
+          <input id="form-input-date" type="date" required class="w-full min-h-[50px] px-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 text-neutral-850 dark:text-neutral-150 focus:outline-none" />
+        </div>
+
+        <!-- 2. Seleção de Colaborador -->
+        <div class="flex flex-col gap-1.5">
+          <label for="form-input-colab" class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5">
+            <i data-lucide="user" class="w-4 h-4 text-teal-600"></i>
+            Colaborador Escalado
+          </label>
+          <select id="form-input-colab" required class="w-full min-h-[50px] px-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 text-neutral-850 dark:text-neutral-150 focus:outline-none"></select>
+        </div>
+
+        <!-- 3. Seções Exclusivas da Aba Ativa -->
+        <div id="modal-dashboard-fields" class="space-y-4">
+          <!-- Troca Compensatória -->
+          <div class="flex flex-col gap-1.5">
+            <label for="form-input-swap-date" class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5">
+              <i data-lucide="repeat" class="w-4 h-4 text-blue-500"></i>
+              Troca compensatória pelo dia (Opcional)
+            </label>
+            <input id="form-input-swap-date" type="date" class="w-full min-h-[50px] px-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 text-neutral-850 dark:text-neutral-150 focus:outline-none" />
+          </div>
+
+          <!-- At Home status selector -->
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-450 block">Status de permanência em casa / Substituição</label>
+            <div class="grid grid-cols-2 gap-2 bg-neutral-100 dark:bg-neutral-950 p-1 rounded-2xl border border-neutral-200 dark:border-neutral-855">
+              <button type="button" id="form-btn-ocupado" onclick="setFormAtHomeStatus('-x-')" class="min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-rose-50 border border-rose-100/50 text-rose-800 dark:bg-rose-950/40 dark:text-rose-400 shadow-sm">Ocupado (-x-)</button>
+              <button type="button" id="form-btn-emcasa" onclick="setFormAtHomeStatus('casa')" class="min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500 hover:text-neutral-850">Em Casa</button>
+            </div>
+            
+            <input type="hidden" id="form-input-athome" value="-x-" />
+            <input type="text" id="form-input-athome-custom" placeholder="Especificar nome ou notas de rendição" class="w-full min-h-[44px] px-4 text-xs rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 text-neutral-850 dark:text-neutral-150 focus:outline-none" />
+          </div>
+        </div>
+
+        <div id="modal-leaves-fields" class="hidden space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5">
+            <i data-lucide="award" class="w-4 h-4 text-purple-600"></i>
+            Tipo Especial de Folga
+          </span>
+          <div class="grid grid-cols-2 gap-2 bg-neutral-100 dark:bg-neutral-950 p-1.5 rounded-2xl border border-neutral-200 dark:border-neutral-850">
+            <button type="button" id="form-btn-leave-mensal" onclick="setFormLeaveType('mensal')" class="min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-white dark:bg-neutral-800 text-teal-700 dark:text-teal-400 shadow-sm">Mensal</button>
+            <button type="button" id="form-btn-leave-extra" onclick="setFormLeaveType('extra')" class="min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500 hover:text-neutral-850">Extra</button>
+          </div>
+          <input type="hidden" id="form-input-leavetype" value="mensal" />
+        </div>
+
+        <div class="flex gap-3 pt-4 border-t border-neutral-100 dark:border-neutral-800">
+          <button type="button" onclick="closeModal()" class="flex-1 min-h-[50px] rounded-xl border border-neutral-200 dark:border-neutral-750 text-neutral-600 dark:text-neutral-350 font-bold hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all text-sm">Cancelar</button>
+          <button type="submit" class="flex-1 min-h-[50px] rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-extrabold transition-all text-sm shadow-md flex items-center justify-center gap-2">
+            <i data-lucide="check" class="w-4 h-4"></i> Salvar Entrada
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // --- 1. DADOS INICIAIS ---
+    const INITIAL_COLLABORATORS = [
+      { id: 'col1', name: 'Reginaldo', color: 'bg-indigo-600 text-white', avatarChar: 'R' },
+      { id: 'col2', name: 'Agenor', color: 'bg-emerald-600 text-white', avatarChar: 'A' },
+      { id: 'col3', name: 'Juliana', color: 'bg-purple-600 text-white', avatarChar: 'J' },
+      { id: 'col4', name: 'Marcos', color: 'bg-amber-600 text-white', avatarChar: 'M' }
+    ];
+
+    const INITIAL_SHIFTS = [
+      { id: 'shift_1', date: '2026-06-03', onShift: 'Agenor', swapForDate: '2026-06-04', atHome: '-x-' },
+      { id: 'shift_2', date: '2026-06-07', onShift: 'Agenor', swapForDate: '2026-06-14', atHome: 'Agenor' },
+      { id: 'shift_3', date: '2026-06-21', onShift: 'Agenor', swapForDate: '2026-06-28', atHome: 'Agenor' },
+      { id: 'shift_4', date: '2026-06-04', onShift: 'Reginaldo', swapForDate: '2026-06-03', atHome: '-x-' },
+      { id: 'shift_5', date: '2026-06-14', onShift: 'Reginaldo', swapForDate: '2026-06-07', atHome: 'Reginaldo' },
+      { id: 'shift_6', date: '2026-06-28', onShift: 'Reginaldo', swapForDate: '2026-06-21', atHome: 'Reginaldo' }
+    ];
+
+    const INITIAL_OFFDAYS = [
+      { id: 'off_1', date: '2026-06-13', name: 'Agenor', type: 'mensal' },
+      { id: 'off_2', date: '2026-06-20', name: 'Reginaldo', type: 'mensal' }
+    ];
+
+    // --- 2. ESTADO DA APLICAÇÃO ---
+    const state = {
+      activeTab: 'dashboard', // dashboard | leaves
+      viewMode: 'calendar', // calendar | list
+      currentMonth: new Date(2026, 5, 1), // June 2026
+      
+      collaborators: (() => {
+        try {
+          return JSON.parse(localStorage.getItem('collaborators_v4')) || INITIAL_COLLABORATORS;
+        } catch {
+          return INITIAL_COLLABORATORS;
+        }
+      })(),
+
+      shifts: (() => {
+        try {
+          return JSON.parse(localStorage.getItem('shifts_v4')) || INITIAL_SHIFTS;
+        } catch {
+          return INITIAL_SHIFTS;
+        }
+      })(),
+
+      offDays: (() => {
+        try {
+          return JSON.parse(localStorage.getItem('offDays_v4')) || INITIAL_OFFDAYS;
+        } catch {
+          return INITIAL_OFFDAYS;
+        }
+      })(),
+
+      selectedColabColor: 'bg-indigo-600 text-white',
+      theme: (() => {
+        try {
+          return localStorage.getItem('theme_v4') || 'light';
+        } catch {
+          return 'light';
+        }
+      })(),
+
+      activeHubTab: 'whatsapp' // whatsapp | alerts | clt
+    };
+
+    // --- 3. REFERÊNCIAS DO DOM ---
+    const el = {
+      currentMonthDisplay: document.getElementById('current-month-display'),
+      statSubtextMonth: document.getElementById('stat-subtext-month'),
+      calendarGrid: document.getElementById('calendar-grid'),
+      listSection: document.getElementById('list-section'),
+      leavesSection: document.getElementById('leaves-section'),
+      
+      tabDashboard: document.getElementById('tab-dashboard'),
+      tabLeaves: document.getElementById('tab-leaves'),
+      viewModePanel: document.getElementById('view-mode-panel'),
+      btnViewCalendar: document.getElementById('btn-view-calendar'),
+      btnViewList: document.getElementById('btn-view-list'),
+      
+      calendarSection: document.getElementById('calendar-section'),
+      
+      // Estatísticas
+      statTotalShifts: document.getElementById('stat-total-shifts'),
+      statSwapped: document.getElementById('stat-swapped'),
+      statLeaves: document.getElementById('stat-leaves'),
+      statLeaderName: document.getElementById('stat-leader-name'),
+      statLeaderSub: document.getElementById('stat-leader-sub'),
+
+      // Colaboradores
+      colabCountBadge: document.getElementById('colab-count-badge'),
+      colabFormContainer: document.getElementById('colab-form-container'),
+      colabInputName: document.getElementById('colab-input-name'),
+      colabBtnText: document.getElementById('colab-btn-text'),
+      colabsListGrid: document.getElementById('colabs-list-grid'),
+      footerAvatars: document.getElementById('footer-avatars'),
+
+      // Modal Form
+      modalContainer: document.getElementById('modal-container'),
+      modalFormTitle: document.getElementById('modal-form-title'),
+      formEditId: document.getElementById('form-edit-id'),
+      formInputDate: document.getElementById('form-input-date'),
+      formInputColab: document.getElementById('form-input-colab'),
+      modalDashboardFields: document.getElementById('modal-dashboard-fields'),
+      formInputSwapDate: document.getElementById('form-input-swap-date'),
+      formBtnOcupado: document.getElementById('form-btn-ocupado'),
+      formBtnEmcasa: document.getElementById('form-btn-emcasa'),
+      formInputAthome: document.getElementById('form-input-athome'),
+      formInputAthomeCustom: document.getElementById('form-input-athome-custom'),
+      
+      modalLeavesFields: document.getElementById('modal-leaves-fields'),
+      formBtnLeaveMensal: document.getElementById('form-btn-leave-mensal'),
+      formBtnLeaveExtra: document.getElementById('form-btn-leave-extra'),
+      formInputLeavetype: document.getElementById('form-input-leavetype'),
+
+      // Toast
+      toast: document.getElementById('toast'),
+      toastMessage: document.getElementById('toast-message'),
+      toastIcon: document.getElementById('toast-icon'),
+
+      // Theme toggle icon
+      themeToggleBtn: document.getElementById('theme-toggle-btn'),
+      themeIcon: document.getElementById('theme-icon'),
+
+      // WhatsApp proposals
+      wapProposingSelect: document.getElementById('wap-proposing-select'),
+      wapDateInput: document.getElementById('wap-date-input'),
+      wapTargetDate: document.getElementById('wap-target-date'),
+      wapPeriodSelect: document.getElementById('wap-period-select'),
+      wapTextPreview: document.getElementById('wap-text-preview'),
+      wapBtnCopy: document.getElementById('wap-btn-copy'),
+
+      // Alerts Panel inside Hub
+      alertsCountBadge: document.getElementById('alerts-count-badge'),
+      alertsAuditList: document.getElementById('alerts-audit-list')
+    };
+
+    // --- 4. PERSISTÊNCIA ---
+    function syncLocalStorage() {
+      try {
+        localStorage.setItem('collaborators_v4', JSON.stringify(state.collaborators));
+        localStorage.setItem('shifts_v4', JSON.stringify(state.shifts));
+        localStorage.setItem('offDays_v4', JSON.stringify(state.offDays));
+      } catch (e) {
+        console.error('Falha de escrita no localStorage', e);
+      }
+    }
+
+    // --- 5. TOAST FEEDBACK ---
+    let toastTimer;
+    function triggerToast(msg, type = 'success') {
+      const iconMap = {
+        success: 'check-circle',
+        error: 'alert-circle',
+        info: 'info'
+      };
+
+      el.toastMessage.textContent = msg;
+      el.toast.classList.remove('hidden');
+      el.toast.classList.add('flex', 'animate-fade-in');
+
+      // Update icon dynamically
+      el.toastIcon.setAttribute('data-lucide', iconMap[type] || 'check-circle');
+      lucide.createIcons();
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(hideToast, 3000);
+    }
+
+    function hideToast() {
+      el.toast.classList.add('hidden');
+      el.toast.classList.remove('flex', 'animate-fade-in');
+    }
+
+    // --- 6. NAVEGAÇÃO E DATAS COMPILADAS ---
+    function navigateMonth(direction) {
+      state.currentMonth = new Date(state.currentMonth.getFullYear(), state.currentMonth.getMonth() + direction, 1);
+      renderAll();
+    }
+
+    function formatMonthYear(date) {
+      return date.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }).toUpperCase();
+    }
+
+    function getFormattedReadable(dateString) {
+      if (!dateString) return '-';
+      const [y, m, d] = dateString.split('-').map(Number);
+      const computedDate = new Date(y, m - 1, d);
+      return computedDate.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' });
+    }
+
+    function getCollaboratorColor(name) {
+      const match = state.collaborators.find(c => c.name.toLowerCase() === name.toLowerCase());
+      return match ? match.color : 'bg-slate-500 text-white';
+    }
+
+    // --- 7. CHAVEAMENTOS ---
+    function switchActiveTab(tabName) {
+      state.activeTab = tabName;
+      
+      if (tabName === 'dashboard') {
+        el.tabDashboard.className = "py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-400 shadow-sm";
+        el.tabLeaves.className = "py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 text-neutral-500 hover:text-neutral-800 dark:text-neutral-400";
+        el.viewModePanel.classList.remove('hidden');
+      } else {
+        el.tabLeaves.className = "py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 bg-white dark:bg-neutral-900 text-purple-700 dark:text-purple-400 shadow-sm";
+        el.tabDashboard.className = "py-3 px-4 rounded-xl text-xs font-extrabold uppercase tracking-widest transition-all flex items-center justify-center gap-2 text-neutral-500 hover:text-neutral-800 dark:text-neutral-400";
+        el.viewModePanel.classList.add('hidden');
+      }
+      renderAll();
+    }
+
+    function switchViewMode(modeName) {
+      state.viewMode = modeName;
+      if (modeName === 'calendar') {
+        el.btnViewCalendar.className = "p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-400 shadow-sm";
+        el.btnViewList.className = "p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold text-neutral-500 hover:text-neutral-800 dark:text-neutral-450";
+      } else {
+        el.btnViewList.className = "p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-400 shadow-sm";
+        el.btnViewCalendar.className = "p-2 rounded-lg transition-all flex items-center gap-1.5 text-xs font-bold text-neutral-500 hover:text-neutral-800 dark:text-neutral-450";
+      }
+      renderAll();
+    }
+
+    // Theme logic
+    function toggleTheme() {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme_v4', state.theme);
+      applyTheme();
+    }
+
+    function applyTheme() {
+      const root = document.documentElement;
+      if (state.theme === 'dark') {
+        root.classList.add('dark');
+        root.setAttribute('data-theme', 'dark');
+        el.themeIcon.setAttribute('data-lucide', 'sun');
+        el.themeIcon.className = "w-4 h-4 text-amber-400";
+      } else {
+        root.classList.remove('dark');
+        root.setAttribute('data-theme', 'light');
+        el.themeIcon.setAttribute('data-lucide', 'moon');
+        el.themeIcon.className = "w-4 h-4 text-teal-600";
+      }
+      lucide.createIcons();
+    }
+
+    // --- 8. RENDERIZAÇÃO DE GRADE CALENDÁRIO ---
+    function renderCalendarView() {
+      el.calendarGrid.innerHTML = '';
+      
+      const year = state.currentMonth.getFullYear();
+      const month = state.currentMonth.getMonth();
+      
+      const firstDay = new Date(year, month, 1);
+      const startOffset = firstDay.getDay(); // (0-6)
+      const daysCount = new Date(year, month + 1, 0).getDate();
+
+      // Células vazias iniciais
+      for (let i = 0; i < startOffset; i++) {
+        const blank = document.createElement('div');
+        blank.className = "aspect-square bg-slate-100/50 dark:bg-neutral-950/20 rounded-xl";
+        el.calendarGrid.appendChild(blank);
+      }
+
+      // Células do mês corrente
+      for (let day = 1; day <= daysCount; day++) {
+        const mm = String(month + 1).padStart(2, '0');
+        const dd = String(day).padStart(2, '0');
+        const cellDate = `${year}-${mm}-${dd}`;
+
+        const cell = document.createElement('div');
+        cell.className = "aspect-square bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850 rounded-2xl p-1 md:p-2 flex flex-col justify-between hover:bg-neutral-100 dark:hover:bg-neutral-800/80 transition-all cursor-pointer relative group min-h-[75px]";
+        cell.onclick = () => openModalWithDate(cellDate);
+
+        // Cabeçário numérico
+        const numBar = document.createElement('div');
+        numBar.className = "flex justify-between items-start w-full";
+        
+        const numLabel = document.createElement('span');
+        numLabel.className = "font-mono text-xs md:text-sm font-bold text-neutral-600 dark:text-neutral-400";
+        numLabel.textContent = day;
+        numBar.appendChild(numLabel);
+
+        const hoverPlus = document.createElement('span');
+        hoverPlus.className = "opacity-0 group-hover:opacity-100 text-teal-600 dark:text-teal-400 p-0.5 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-opacity shrink-0";
+        hoverPlus.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>`;
+        numBar.appendChild(hoverPlus);
+
+        cell.appendChild(numBar);
+
+        // Eventos
+        const eventsWrapper = document.createElement('div');
+        eventsWrapper.className = "flex flex-col gap-1 overflow-y-auto max-h-[75%] pr-0.5 w-full";
+
+        // Filter plantões deste dia
+        state.shifts.filter(s => s.date === cellDate).forEach(s => {
+          const badge = document.createElement('div');
+          badge.className = `text-[9px] md:text-[10px] leading-tight px-1.5 py-0.5 rounded-md font-semibold truncate flex items-center justify-between gap-1 shadow-sm ${getCollaboratorColor(s.onShift)}`;
+          badge.title = `Plantão: ${s.onShift}`;
+          badge.onclick = (e) => {
+            e.stopPropagation();
+            triggerEditShift(s);
+          };
+
+          const textSpan = document.createElement('span');
+          textSpan.className = "truncate";
+          textSpan.textContent = s.onShift;
+          badge.appendChild(textSpan);
+
+          if (s.swapForDate || s.atHome !== '-x-') {
+            const sym = document.createElement('span');
+            sym.className = "shrink-0 opacity-90";
+            sym.textContent = s.swapForDate ? '⇄' : '🏠';
+            badge.appendChild(sym);
+          }
+
+          eventsWrapper.appendChild(badge);
+        });
+
+        // Filter folgas deste dia
+        state.offDays.filter(o => o.date === cellDate).forEach(o => {
+          const badge = document.createElement('div');
+          badge.className = `text-[8px] md:text-[9.5px] leading-none px-1 py-0.5 rounded-md font-extrabold border uppercase tracking-wider text-center ${
+            o.type === 'mensal'
+              ? 'border-blue-200 bg-blue-50 text-blue-800 dark:bg-blue-950/40 dark:border-blue-900/50 dark:text-blue-300'
+              : 'border-purple-200 bg-purple-50 text-purple-800 dark:bg-purple-950/40 dark:border-purple-900/50 dark:text-purple-300'
+          }`;
+          badge.title = `Folga ${o.type} de ${o.name}`;
+          badge.textContent = `${o.name}: ${o.type[0].toUpperCase()}`;
+          badge.onclick = (e) => {
+            e.stopPropagation();
+            triggerEditOffday(o);
+          };
+
+          eventsWrapper.appendChild(badge);
+        });
+
+        cell.appendChild(eventsWrapper);
+        el.calendarGrid.appendChild(cell);
+      }
+    }
+
+    // --- 9. RENDERIZAÇÃO DE LISTA DETALHADA ---
+    function renderListView() {
+      el.listSection.innerHTML = '';
+      
+      const year = state.currentMonth.getFullYear();
+      const month = state.currentMonth.getMonth();
+
+      const currentShifts = state.shifts.filter(s => {
+        const d = new Date(s.date + 'T00:00:00');
+        return d.getFullYear() === year && d.getMonth() === month;
+      });
+
+      if (!currentShifts.length) {
+        el.listSection.innerHTML = `
+          <div class="border border-dashed border-neutral-200 dark:border-neutral-800 rounded-3xl p-10 text-center bg-white dark:bg-neutral-900 shadow-sm">
+            <i data-lucide="calendar" class="w-12 h-12 text-neutral-300 dark:text-neutral-600 mx-auto mb-4"></i>
+            <h4 class="font-extrabold text-neutral-800 dark:text-neutral-200 text-lg">Nenhum plantão escalado</h4>
+            <p class="text-neutral-500 text-sm mt-1 max-w-sm mx-auto">
+              Seu grupo de trabalho não possui trocas salvas para este mês corrente. Lanche uma nova utilizando o botão (+).
+            </p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      // Grouping
+      const grouping = {};
+      currentShifts.forEach(s => {
+        if (!grouping[s.onShift]) grouping[s.onShift] = [];
+        grouping[s.onShift].push(s);
+      });
+
+      Object.entries(grouping).forEach(([person, list]) => {
+        const sorted = list.sort((a,b) => a.date.localeCompare(b.date));
+        
+        const card = document.createElement('article');
+        card.className = "bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl overflow-hidden shadow-sm animate-fade-in";
+
+        let html = `
+          <header class="px-5 py-4 bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-100 dark:border-neutral-850 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl flex items-center justify-center font-extrabold shadow-sm text-xs ${getCollaboratorColor(person)}">
+                ${person[0].toUpperCase()}
+              </div>
+              <div>
+                <h3 class="font-bold text-neutral-850 dark:text-neutral-200 text-base font-display">${person}</h3>
+                <p class="text-[10px] text-neutral-500 font-bold uppercase tracking-wider">Planilha individual do colaborador</p>
+              </div>
+            </div>
+            <span class="text-xs bg-teal-50 dark:bg-teal-950/30 text-teal-700 dark:text-teal-400 font-extrabold px-3 py-1 rounded-full border border-teal-100 dark:border-teal-900/40">
+              ${sorted.length} ${sorted.length === 1 ? 'escala' : 'escalas'}
+            </span>
+          </header>
+          <div class="divide-y divide-neutral-100 dark:divide-neutral-850">
+        `;
+
+        sorted.forEach(shift => {
+          html += `
+            <div class="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-neutral-50/50 dark:hover:bg-neutral-950/40 transition-all">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 flex-1">
+                <div>
+                  <span class="text-[10px] uppercase font-bold tracking-widest text-neutral-400 dark:text-neutral-550">Data plantão</span>
+                  <p class="text-sm font-extrabold text-neutral-800 dark:text-neutral-200 mt-0.5">${getFormattedReadable(shift.date)}</p>
+                </div>
+                <div>
+                  <span class="text-[10px] uppercase font-bold tracking-widest text-neutral-400 dark:text-neutral-550">Troca compensatória</span>
+                  <p class="text-sm font-semibold text-neutral-600 dark:text-neutral-400 mt-0.5">
+                    ${shift.swapForDate ? getFormattedReadable(shift.swapForDate) : '<span class="text-neutral-450 italic">Sem compensação associada</span>'}
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3 shrink-0">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider shadow-sm border ${
+                  shift.atHome === '-x-'
+                    ? 'bg-rose-50 border-rose-100 text-rose-800 dark:bg-rose-950/40 dark:border-rose-900/40 dark:text-rose-350'
+                    : 'bg-emerald-50 border-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:border-emerald-900/40 dark:text-emerald-350'
+                }">
+                  ${shift.atHome === '-x-' ? 'Ocupado / Turno' : 'Fica em casa: ' + shift.atHome}
+                </span>
+
+                <div class="flex items-center gap-1.5">
+                  <button type="button" onclick="quickToggleShiftStatus('${shift.id}')" class="px-3 py-2 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-xl hover:bg-neutral-200 dark:hover:bg-neutral-705 transition-all text-xs font-bold" title="Inverter se vai folgar ou trabalhar">
+                    Alternar
+                  </button>
+                  <button type="button" onclick="deleteShift('${shift.id}')" class="p-2 text-neutral-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/20 rounded-xl transition-all">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        html += '</div>';
+        card.innerHTML = html;
+        el.listSection.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    // --- 10. RENDERIZAÇÃO DE FOLGAS GERAIS ---
+    function renderLeavesView() {
+      el.leavesSection.innerHTML = '';
+      
+      const year = state.currentMonth.getFullYear();
+      const month = state.currentMonth.getMonth();
+
+      const currentOffdays = state.offDays.filter(o => {
+        const d = new Date(o.date + 'T00:00:00');
+        return d.getFullYear() === year && d.getMonth() === month;
+      });
+
+      if (!currentOffdays.length) {
+        el.leavesSection.innerHTML = `
+          <div class="col-span-full border border-dashed border-neutral-200 dark:border-neutral-800 rounded-3xl p-10 text-center bg-white dark:bg-neutral-900 shadow-sm">
+            <i data-lucide="heart" class="w-12 h-12 text-neutral-300 dark:text-neutral-600 mx-auto mb-4"></i>
+            <h4 class="font-extrabold text-neutral-800 dark:text-neutral-200 text-lg">Sem folgas agendadas</h4>
+            <p class="text-neutral-500 text-sm mt-1 max-w-sm mx-auto">
+              Nenhuma folga/categoria registrada para este período. Cadastre utilizando o formulário dinâmico.
+            </p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      currentOffdays.sort((a,b) => a.date.localeCompare(b.date)).forEach(off => {
+        const item = document.createElement('article');
+        item.className = "bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl p-5 shadow-sm hover:shadow-md transition-all flex justify-between items-start gap-4 relative overflow-hidden group";
+        
+        item.innerHTML = `
+          <div class="absolute top-0 left-0 right-0 h-1.5 ${off.type === 'mensal' ? 'bg-indigo-500' : 'bg-purple-500'}"></div>
+          
+          <div class="flex flex-col gap-3">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[9px] font-extrabold uppercase tracking-widest ${
+              off.type === 'mensal'
+                ? 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/40'
+                : 'bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-400 border border-purple-100 dark:border-purple-900/40'
+            }">
+              <i data-lucide="${off.type==='mensal'?'award':'sparkles'}" class="w-3 h-3 shrink-0"></i>
+              Folga ${off.type}
+            </span>
+
+            <div class="flex items-center gap-2.5 mt-1">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center font-extrabold shadow-sm text-xs ${getCollaboratorColor(off.name)} shrink-0">
+                ${off.name[0].toUpperCase()}
+              </div>
+              <h4 class="font-extrabold text-neutral-850 dark:text-neutral-100 text-base font-display truncate">${off.name}</h4>
+            </div>
+
+            <div class="text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+              📅 ${getFormattedReadable(off.date)}
+            </div>
+          </div>
+
+          <button type="button" onclick="deleteOffday('${off.id}')" class="p-2.5 bg-neutral-50 dark:bg-neutral-950 border border-neutral-150 dark:border-neutral-800 hover:border-rose-100 text-neutral-400 hover:text-rose-600 dark:hover:text-rose-450 rounded-2xl hover:bg-rose-50 transition-all shrink-0">
+            <i data-lucide="trash-2" class="w-4 h-4"></i>
+          </button>
+        `;
+        el.leavesSection.appendChild(item);
+      });
+
+      lucide.createIcons();
+    }
+
+    // --- 11. GERENCIAMENTO DE COLABORADORES ---
+    function renderCollaborators() {
+      el.colabsListGrid.innerHTML = '';
+      el.colabCountBadge.textContent = state.collaborators.length;
+
+      // Calcular contagem de turnos e folgas por pessoa
+      const shiftCounts = {};
+      const offCounts = {};
+      state.shifts.forEach(s => { shiftCounts[s.onShift] = (shiftCounts[s.onShift] || 0) + 1; });
+      state.offDays.forEach(o => { offCounts[o.name] = (offCounts[o.name] || 0) + 1; });
+
+      state.collaborators.forEach(c => {
+        const sCount = shiftCounts[c.name] || 0;
+        const oCount = offCounts[c.name] || 0;
+        const isProtected = c.name === 'Reginaldo' || c.name === 'Agenor';
+
+        const card = document.createElement('div');
+        card.className = "flex items-center justify-between gap-3 p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-100 dark:border-neutral-850";
+
+        card.innerHTML = `
+          <div class="flex items-center gap-2.5 min-w-0">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center font-extrabold shadow-sm text-sm uppercase ${c.color} shrink-0">
+              ${c.avatarChar}
+            </div>
+            <div class="min-w-0">
+              <h4 class="font-bold text-xs md:text-sm text-neutral-805 dark:text-neutral-200 truncate">${c.name}</h4>
+              <p class="text-[10px] text-neutral-500 font-bold">
+                ${sCount} ${sCount === 1 ? 'plantão' : 'plantões'} • ${oCount} ${oCount === 1 ? 'folga' : 'folgas'}
+              </p>
+            </div>
+          </div>
+
+          ${!isProtected ? `
+            <button type="button" onclick="deleteCollaborator('${c.id}')" class="text-neutral-400 hover:text-rose-600 p-2 rounded-xl hover:bg-rose-50 transition-all shrink-0">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          ` : ''}
+        `;
+
+        el.colabsListGrid.appendChild(card);
+      });
+
+      // Update footer avatars
+      el.footerAvatars.innerHTML = '';
+      state.collaborators.slice(0, 3).forEach(c => {
+        const avatar = document.createElement('div');
+        avatar.className = `w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-xs uppercase border-2 border-white dark:border-neutral-900 ${c.color} shrink-0 -mr-2 shadow-sm`;
+        avatar.textContent = c.avatarChar;
+        avatar.title = c.name;
+        el.footerAvatars.appendChild(avatar);
+      });
+
+      if (state.collaborators.length > 3) {
+        const rest = document.createElement('div');
+        rest.className = "w-8 h-8 rounded-full bg-neutral-300 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 font-bold text-xs flex items-center justify-center border-2 border-white dark:border-neutral-900 select-none z-10";
+        rest.textContent = `+${state.collaborators.length - 3}`;
+        el.footerAvatars.appendChild(rest);
+      }
+
+      // Update dropdown selections in both Modals
+      const formInputColab = el.formInputColab;
+      const wapSendSelect = el.wapProposingSelect;
+
+      const prevSelectedColab = formInputColab.value;
+      const prevSelectedWap = wapSendSelect.value;
+
+      formInputColab.innerHTML = '';
+      wapSendSelect.innerHTML = '<option value="">-- Selecione seu nome --</option>';
+
+      state.collaborators.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.name;
+        opt.textContent = c.name;
+        formInputColab.appendChild(opt);
+
+        const opt2 = document.createElement('option');
+        opt2.value = c.name;
+        opt2.textContent = c.name;
+        wapSendSelect.appendChild(opt2);
+      });
+
+      if (prevSelectedColab) formInputColab.value = prevSelectedColab;
+      if (prevSelectedWap) wapSendSelect.value = prevSelectedWap;
+
+      lucide.createIcons();
+    }
+
+    function toggleColabForm() {
+      const isHidden = el.colabFormContainer.classList.contains('hidden');
+      if (isHidden) {
+        el.colabFormContainer.classList.remove('hidden');
+        el.colabBtnText.textContent = "Fechar formulário";
+        el.colabInputName.focus();
+      } else {
+        el.colabFormContainer.classList.add('hidden');
+        el.colabBtnText.textContent = "Novo integrante";
+      }
+    }
+
+    function selectFormColor(colorStr, btnElement) {
+      state.selectedColabColor = colorStr;
+      
+      // Remove ring from other buttons
+      const buttons = btnElement.parentNode.children;
+      for (let btn of buttons) {
+        btn.classList.remove('ring-2', 'ring-teal-500', 'ring-offset-2', 'dark:ring-offset-neutral-900');
+      }
+      btnElement.classList.add('ring-2', 'ring-teal-500', 'ring-offset-2', 'dark:ring-offset-neutral-900');
+    }
+
+    function saveNewCollaborator() {
+      const val = el.colabInputName.value.trim();
+      if (!val) {
+        triggerToast('Por favor, informe o nome do colaborador.', 'error');
+        return;
+      }
+
+      const duplicate = state.collaborators.some(c => c.name.toLowerCase() === val.toLowerCase());
+      if (duplicate) {
+        triggerToast('Já existe um colaborador com este nome na equipe.', 'error');
+        return;
+      }
+
+      const id = 'col_' + Math.random().toString(36).substring(2, 11);
+      state.collaborators.push({
+        id,
+        name: val,
+        color: state.selectedColabColor,
+        avatarChar: val[0].toUpperCase()
+      });
+
+      syncLocalStorage();
+      renderCollaborators();
+      triggerToast(`Colaborador "${val}" inserido com sucesso!`, 'success');
+      el.colabInputName.value = '';
+      toggleColabForm();
+    }
+
+    function deleteCollaborator(id) {
+      const matched = state.collaborators.find(c => c.id === id);
+      if (!matched) return;
+
+      // Segurança: verificar se possui plantão ou folgas vinculados
+      const assignedShift = state.shifts.some(s => s.onShift.toLowerCase() === matched.name.toLowerCase());
+      const assignedOff = state.offDays.some(o => o.name.toLowerCase() === matched.name.toLowerCase());
+
+      if (assignedShift || assignedOff) {
+        triggerToast(`Não foi possível remover "${matched.name}" pois ele possui calendários e agendas ativas.`, 'error');
+        return;
+      }
+
+      state.collaborators = state.collaborators.filter(c => c.id !== id);
+      syncLocalStorage();
+      renderCollaborators();
+      triggerToast('Integrante removido da equipe!', 'info');
+    }
+
+    // --- 12. METRICS & ESTADÍSTICAS ---
+    function renderStats() {
+      const year = state.currentMonth.getFullYear();
+      const month = state.currentMonth.getMonth();
+
+      const activeShifts = state.shifts.filter(s => {
+        const d = new Date(s.date + 'T00:00:00');
+        return d.getFullYear() === year && d.getMonth() === month;
+      });
+
+      const activeOffs = state.offDays.filter(o => {
+        const d = new Date(o.date + 'T00:00:00');
+        return d.getFullYear() === year && d.getMonth() === month;
+      });
+
+      // Total plantões
+      el.statTotalShifts.textContent = activeShifts.length;
+      el.statSubtextMonth.textContent = `Em ${state.currentMonth.toLocaleDateString('pt-BR', { month: 'long' })}`;
+
+      // Swaps
+      const swapsCount = activeShifts.filter(s => s.swapForDate).length;
+      el.statSwapped.textContent = swapsCount;
+
+      // Offdays
+      el.statLeaves.textContent = activeOffs.length;
+
+      // Champion/Leader
+      const counts = {};
+      activeShifts.forEach(s => {
+        counts[s.onShift] = (counts[s.onShift] || 0) + 1;
+      });
+
+      let leadName = '-';
+      let leadCount = 0;
+      Object.entries(counts).forEach(([name, count]) => {
+        if (count > leadCount) {
+          leadCount = count;
+          leadName = name;
+        }
+      });
+
+      el.statLeaderName.textContent = leadName;
+      el.statLeaderSub.textContent = leadCount > 0 ? `${leadCount} plantões escalados` : 'Sem registros';
+    }
+
+    // --- 13. AUDITORIA & ALERTAS ---
+    function executeAudit() {
+      const alerts = [];
+      const activeShifts = state.shifts;
+      const activeOffdays = state.offDays;
+
+      // 1. Clash entre folga e plantão no mesmo dia
+      activeShifts.forEach(s => {
+        const clash = activeOffdays.find(o => o.name.toLowerCase() === s.onShift.toLowerCase() && o.date === s.date);
+        if (clash) {
+          alerts.push({
+            id: `audit_clash_${s.id}`,
+            type: 'danger',
+            title: `Conflito Crítico: ${s.onShift}`,
+            desc: `Escalado para plantão e com folga ativa no mesmo dia (${getFormattedReadable(s.date)}).`
+          });
+        }
+      });
+
+      // 2. Duplicidade de plantão no mesmo dia
+      const map = {};
+      activeShifts.forEach(s => {
+        if (!map[s.date]) map[s.date] = [];
+        map[s.date].push(s.onShift);
+      });
+
+      Object.entries(map).forEach(([date, list]) => {
+        const duplicates = list.filter((item, index) => list.indexOf(item) !== index);
+        if (duplicates.length > 0) {
+          const uniqueDups = Array.from(new Set(duplicates));
+          uniqueDups.forEach(dup => {
+            alerts.push({
+              id: `audit_dup_${date}_${dup}`,
+              type: 'warning',
+              title: `Duplicidade de Plantão: ${dup}`,
+              desc: `Colaborador escalado em mais de um turno no dia ${getFormattedReadable(date)}.`
+            });
+          });
+        }
+      });
+
+      // 3. Dias consecutivos / fadiga consecutive plantonistas
+      const consecutiveStore = {};
+      activeShifts.forEach(s => {
+        if (!consecutiveStore[s.onShift]) consecutiveStore[s.onShift] = [];
+        consecutiveStore[s.onShift].push(s.date);
+      });
+
+      Object.entries(consecutiveStore).forEach(([name, dates]) => {
+        const sortedDates = Array.from(new Set(dates)).sort((a,b) => a.localeCompare(b));
+        for (let i = 0; i < sortedDates.length - 1; i++) {
+          const d1 = new Date(sortedDates[i] + 'T00:00:00');
+          const d2 = new Date(sortedDates[i + 1] + 'T00:00:00');
+          const diffTime = Math.abs(d2.getTime() - d1.getTime());
+          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          
+          if (diffDays === 1) {
+            alerts.push({
+              id: `audit_consec_${name}_${sortedDates[i]}`,
+              type: 'info',
+              title: `Plantão Consecutivo: ${name}`,
+              desc: `escalado sucessivamente em dias sequenciais: ${d1.toLocaleDateString('pt-BR')} e ${d2.toLocaleDateString('pt-BR')}. interval mínimo exigido.`
+            });
+          }
+        }
+      });
+
+      // Render alert badge
+      el.alertsCountBadge.textContent = alerts.length;
+
+      el.alertsAuditList.innerHTML = '';
+      if (alerts.length === 0) {
+        el.alertsAuditList.innerHTML = `
+          <div class="border border-teal-100 dark:border-teal-900 bg-teal-50/50 dark:bg-teal-950/20 p-5 rounded-2xl flex flex-col items-center text-center gap-2">
+            <i data-lucide="check-circle" class="w-10 h-10 text-teal-600"></i>
+            <span class="font-extrabold text-teal-850 dark:text-teal-400 text-sm">Escala Conforme!</span>
+            <p class="text-xs text-neutral-500 max-w-sm">Nenhum conflito de plantão duplo, colisão de folgas ou cansaço consecutivo foi detectado.</p>
+          </div>
+        `;
+      } else {
+        alerts.forEach(al => {
+          const wrapObj = document.createElement('div');
+          wrapObj.className = `p-3.5 rounded-2xl border text-xs flex gap-3 leading-relaxed ${
+            al.type === 'danger'
+              ? 'bg-rose-50 border-rose-100/60 text-rose-800 dark:bg-rose-950/20 dark:border-rose-900/30'
+              : al.type === 'warning'
+              ? 'bg-amber-50 border-amber-100/60 text-amber-850 dark:bg-amber-950/20 dark:border-amber-900/30'
+              : 'bg-indigo-50 border-indigo-100/60 text-indigo-800 dark:bg-indigo-950/20 dark:border-indigo-900/30'
+          }`;
+
+          wrapObj.innerHTML = `
+            <i data-lucide="alert-triangle" class="w-4.5 h-4.5 shrink-0 ${al.type === 'danger' ? 'text-rose-500' : al.type === 'warning' ? 'text-amber-500' : 'text-indigo-500'}"></i>
+            <div>
+              <h5 class="font-extrabold mb-0.5">${al.title}</h5>
+              <p class="opacity-90">${al.desc}</p>
+            </div>
+          `;
+          el.alertsAuditList.appendChild(wrapObj);
+        });
+      }
+
+      lucide.createIcons();
+    }
+
+    // --- 14. GERADOR DE WHATSAPP ---
+    function updateWapMessage() {
+      const proposer = el.wapProposingSelect.value || '[Selecione seu nome]';
+      const origDate = el.wapDateInput.value;
+      const targetDate = el.wapTargetDate.value;
+      const period = el.wapPeriodSelect.value;
+
+      const formattedOrig = origDate ? getFormattedReadable(origDate) : '[Selecione data original]';
+      const formattedTarget = targetDate ? getFormattedReadable(targetDate) : '[Selecione data pretendida]';
+
+      const customMsg = `*🚨 SOLICITAÇÃO DE TROCA DE PLANTÃO 🚨*
+
+Olá equipe! Gostaria de propor uma permuta nos plantões:
+
+👤 *Quem propõe:* ${proposer}
+📅 *Meu Plantão Original:* ${formattedOrig}
+⏰ *Período / Turno:* ${period}
+
+🔄 *Proposta de Permuta:*
+Desejo trocar pelo dia *${formattedTarget}* com qualquer parceiro em aberto.
+
+💬 _Se tiver interesse em fazer essa troca, por favor responda aqui ou envie inbox (PV). Obrigado!_ 🙏
+
+--
+_Gerado via ShiftExchange Pro_`;
+
+      el.wapTextPreview.textContent = customMsg;
+    }
+
+    function copyWhatsappText() {
+      const msg = el.wapTextPreview.textContent;
+      navigator.clipboard.writeText(msg).then(() => {
+        triggerToast('Texto da proposta pronto e copiado!', 'success');
+      }).catch(() => {
+        triggerToast('Não foi possível copiar o texto automaticamente.', 'error');
+      });
+    }
+
+    function switchHubTab(tabId) {
+      state.activeHubTab = tabId;
+      
+      const tabs = ['whatsapp', 'alerts', 'clt'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`hub-tab-${t}`);
+        const panel = document.getElementById(`hub-panel-${t}`);
+        
+        if (t === tabId) {
+          btn.className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-white dark:bg-neutral-800 text-teal-700 dark:text-teal-400 shadow-sm";
+          panel.classList.remove('hidden');
+        } else {
+          btn.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-neutral-500 hover:text-neutral-805 dark:hover:text-neutral-300";
+          panel.classList.add('hidden');
+        }
+      });
+    }
+
+    // --- 15. GERENCIAMENTO DE CADASTROS (MODAL FLOW) ---
+    function openAddModal() {
+      el.formEditId.value = '';
+      el.formInputDate.value = new Date().toISOString().split('T')[0];
+      el.formInputSwapDate.value = '';
+      el.formInputAthome.value = '-x-';
+      el.formInputAthomeCustom.value = '';
+      el.formInputLeavetype.value = 'mensal';
+
+      setFormAtHomeStatus('-x-');
+      setFormLeaveType('mensal');
+
+      el.modalFormTitle.textContent = state.activeTab === 'dashboard' ? 'Lançar Novo Plantão' : 'Agendar Nova Folga';
+      toggleModalFields();
+
+      el.modalContainer.classList.remove('hidden');
+      el.modalContainer.classList.add('flex');
+    }
+
+    function openModalWithDate(dateStr) {
+      openAddModal();
+      el.formInputDate.value = dateStr;
+    }
+
+    function closeModal() {
+      el.modalContainer.classList.add('hidden');
+      el.modalContainer.classList.remove('flex');
+    }
+
+    function toggleModalFields() {
+      if (state.activeTab === 'dashboard') {
+        el.modalDashboardFields.classList.remove('hidden');
+        el.modalLeavesFields.classList.add('hidden');
+      } else {
+        el.modalDashboardFields.classList.add('hidden');
+        el.modalLeavesFields.classList.remove('hidden');
+      }
+    }
+
+    function setFormAtHomeStatus(status) {
+      if (status === '-x-') {
+        el.formInputAthome.value = '-x-';
+        el.formBtnOcupado.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-rose-50 border border-rose-100/60 text-rose-800 dark:bg-rose-950/40 dark:text-rose-400 shadow-sm flex-1";
+        el.formBtnEmcasa.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500 hover:text-neutral-805 hover:bg-neutral-100 flex-1";
+        el.formInputAthomeCustom.classList.add('hidden');
+      } else {
+        // use selected collaborator
+        const activeName = el.formInputColab.value || '';
+        el.formInputAthome.value = activeName;
+        el.formBtnEmcasa.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-emerald-50 border border-emerald-100/60 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-400 shadow-sm flex-1";
+        el.formBtnOcupado.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500 hover:text-neutral-850 hover:bg-neutral-100 flex-1";
+        el.formInputAthomeCustom.classList.remove('hidden');
+        el.formInputAthomeCustom.value = activeName;
+      }
+    }
+
+    function setFormLeaveType(type) {
+      el.formInputLeavetype.value = type;
+      if (type === 'mensal') {
+        el.formBtnLeaveMensal.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-white dark:bg-neutral-800 text-teal-750 dark:text-teal-400 shadow-sm flex-1 border border-neutral-200/50";
+        el.formBtnLeaveExtra.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500 hover:text-neutral-800 flex-1";
+      } else {
+        el.formBtnLeaveExtra.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center bg-white dark:bg-neutral-800 text-teal-750 dark:text-teal-400 shadow-sm flex-1 border border-neutral-200/50";
+        el.formBtnLeaveMensal.className = "min-h-[44px] rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center text-neutral-500 hover:text-neutral-800 flex-1";
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      
+      const editId = el.formEditId.value;
+      const d = el.formInputDate.value;
+      const colab = el.formInputColab.value;
+
+      if (!d || !colab) return;
+
+      if (state.activeTab === 'dashboard') {
+        const swapD = el.formInputSwapDate.value;
+        const note = el.formInputAthomeCustom.value.trim();
+        let finalAtHome = el.formInputAthome.value;
+        if (finalAtHome !== '-x-' && note) {
+          finalAtHome = note;
+        }
+
+        if (editId) {
+          // Edit
+          state.shifts = state.shifts.map(s => s.id === editId ? { id: editId, date: d, onShift: colab, swapForDate: swapD, atHome: finalAtHome } : s);
+          triggerToast('Plantão alterado com sucesso!', 'success');
+        } else {
+          // Add
+          const newId = 'shift_' + Math.random().toString(36).substring(2, 9);
+          state.shifts.push({ id: newId, date: d, onShift: colab, swapForDate: swapD, atHome: finalAtHome });
+          triggerToast('Parabéns, novo plantão escalado!', 'success');
+        }
+      } else {
+        const lType = el.formInputLeavetype.value;
+        if (editId) {
+          state.offDays = state.offDays.map(o => o.id === editId ? { id: editId, date: d, name: colab, type: lType } : o);
+          triggerToast('Folga alterada com sucesso!', 'success');
+        } else {
+          const newOffId = 'off_' + Math.random().toString(36).substring(2, 9);
+          state.offDays.push({ id: newOffId, date: d, name: colab, type: lType });
+          triggerToast('Parabéns, nova folga programada!', 'success');
+        }
+      }
+
+      syncLocalStorage();
+      closeModal();
+      renderAll();
+    }
+
+    // --- 16. MODIFICADORES DE ESCALAS ---
+    function triggerEditShift(shift) {
+      openAddModal();
+      el.modalFormTitle.textContent = 'Editar Troca de Plantão';
+      el.formEditId.value = shift.id;
+      el.formInputDate.value = shift.date;
+      el.formInputColab.value = shift.onShift;
+      el.formInputSwapDate.value = shift.swapForDate || '';
+      
+      if (shift.atHome === '-x-') {
+        setFormAtHomeStatus('-x-');
+      } else {
+        setFormAtHomeStatus('casa');
+        el.formInputAthomeCustom.value = shift.atHome;
+      }
+
+      el.modalDashboardFields.classList.remove('hidden');
+      el.modalLeavesFields.classList.add('hidden');
+      el.modalContainer.classList.remove('hidden');
+      el.modalContainer.classList.add('flex');
+    }
+
+    function triggerEditOffday(off) {
+      openAddModal();
+      el.modalFormTitle.textContent = 'Editar Registro de Folga';
+      el.formEditId.value = off.id;
+      el.formInputDate.value = off.date;
+      el.formInputColab.value = off.name;
+      setFormLeaveType(off.type);
+
+      el.modalDashboardFields.classList.add('hidden');
+      el.modalLeavesFields.classList.remove('hidden');
+      el.modalContainer.classList.remove('hidden');
+      el.modalContainer.classList.add('flex');
+    }
+
+    function deleteShift(id) {
+      if (confirm('Deseja realmente excluir este plantão?')) {
+        state.shifts = state.shifts.filter(s => s.id !== id);
+        syncLocalStorage();
+        renderAll();
+        triggerToast('Turno excluído com sucesso!', 'info');
+      }
+    }
+
+    function deleteOffday(id) {
+      if (confirm('Deseja realmente excluir esta folga?')) {
+        state.offDays = state.offDays.filter(o => o.id !== id);
+        syncLocalStorage();
+        renderAll();
+        triggerToast('Folga excluída do cronograma!', 'info');
+      }
+    }
+
+    function quickToggleShiftStatus(id) {
+      state.shifts = state.shifts.map(s => {
+        if (s.id !== id) return s;
+        return {
+          ...s,
+          atHome: s.atHome === '-x-' ? s.onShift : '-x-'
+        };
+      });
+      syncLocalStorage();
+      renderAll();
+      triggerToast('Status de permanência em casa atualizado!', 'success');
+    }
+
+    // --- 17. SOCIAL & MULTIÚSO ---
+    function copiarLinkShare() {
+      const shareUrl = window.location.href;
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        triggerToast('Link da escala copiado! Envie por WhatsApp/Telegram.', 'success');
+      }).catch(() => {
+        triggerToast('Não foi possível copiar o link automaticamente.', 'error');
+      });
+    }
+
+    function triggerInstallation() {
+      triggerToast('ShiftExchange Pro está pronto! Adicione esta página em sua tela de início para desfrutar da experiência PWA completa offline.', 'info');
+    }
+
+    // --- 18. ATUALIZADOR GLOBAL (RENDER CYCLES) ---
+    function renderAll() {
+      // 1. Month display update
+      el.currentMonthDisplay.textContent = formatMonthYear(state.currentMonth);
+
+      // 2. Clear panels
+      el.calendarSection.classList.add('hidden');
+      el.listSection.classList.add('hidden');
+      el.leavesSection.classList.add('hidden');
+
+      // 3. Routing tabs and states
+      if (state.activeTab === 'dashboard') {
+        if (state.viewMode === 'calendar') {
+          el.calendarSection.classList.remove('hidden');
+          renderCalendarView();
+        } else {
+          el.listSection.classList.remove('hidden');
+          renderListView();
+        }
+      } else {
+        el.leavesSection.classList.remove('hidden');
+        renderLeavesView();
+      }
+
+      // 4. Update secondary screens
+      renderStats();
+      renderCollaborators();
+      executeAudit();
+      updateWapMessage();
+    }
+
+    // --- 19. REATOR INICIAL (INIT) ---
+    window.addEventListener('DOMContentLoaded', () => {
+      applyTheme();
+      renderAll();
+      
+      // Auto dates for proposal defaults
+      el.wapDateInput.value = new Date(2026, 5, 3).toISOString().split('T')[0];
+      el.wapTargetDate.value = new Date(2026, 5, 4).toISOString().split('T')[0];
+      updateWapMessage();
+    });
+
+  </script>
+</body>
+</html>
 
